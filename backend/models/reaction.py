@@ -6,9 +6,9 @@ class Reaction(db.Model, BaseModel):
 
   __tablename__ = 'reactions'
 
-  reaction_name = db.Column(db.String(25), nullable=False)
+  name = db.Column(db.String(25), nullable=False)
 
-  reaction_image = db.Column(db.String(25), nullable=False)
+  image = db.Column(db.String(25), nullable=False)
   count = db.Column(db.Integer, nullable=False)
 
 
