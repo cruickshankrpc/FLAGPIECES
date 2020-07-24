@@ -13,3 +13,58 @@ with app.app_context():
   # ? its sqlalchemy code.
   db.drop_all() # drop all tables in database
   db.create_all() # create all tables in database
+
+  raquel = User(
+    username="raquel",
+    email="raquel",
+    password="tofu"
+  )
+
+  richard = User(
+    username="richard",
+    email="richard",
+    password="richard"
+  )
+
+  db.session.add(raquel)
+  db.session.add(richard)
+  db.session.commit()
+
+  angry = Reaction(
+    name='angry',
+    image='😠',
+    count=0)
+
+  happy = Reaction(
+    name='happy',
+    image='😊',
+    count=0
+  )
+
+  funny = Reaction(
+    name='funny',
+    image='😂',
+    count=0
+  )
+
+  surprised = Reaction(
+    name='surprised',
+    image='😲',
+    count=0
+  )
+
+  sad = Reaction(
+    name='sad',
+    image='😓',
+    count=0
+  )
+
+  db.session.add(angry)
+  db.session.add(happy)
+  db.session.add(funny)
+  db.session.add(surprised)
+  db.session.add(sad)
+
+  db.session.commit()
+
+
