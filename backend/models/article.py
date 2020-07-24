@@ -11,7 +11,6 @@ articles_reactions = db.Table('articles_reactions',
   db.Column('article_id', db.Integer, db.ForeignKey('articles.id'), primary_key=True)
 )
 
-
 class Article(db.Model, BaseModel):
 
     __tablename__ = 'articles'
@@ -44,8 +43,8 @@ class Flag(db.Model, BaseModel):
 
     flag_image = db.Column(db.String(25), nullable=False)
 
-    maps_id = db.Column(db.Integer, db.ForeignKey('maps.id'))
-    maps = db.relationship('Map', backref='flags')
+    articles_id = db.Column(db.Integer, db.ForeignKey('articles.id'))
+    articles = db.relationship('Article', backref='flags')
 
 
 class Map(db.Model, BaseModel):

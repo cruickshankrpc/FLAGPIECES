@@ -9,7 +9,7 @@ article_schema = ArticleSchema()
 comment_schema = CommentSchema()
 flag_schema = FlagSchema()
 
-router = Blueprint(__name__, 'articles')
+router = Blueprint(__name__, 'singlearticle')
 
 @router.route('/singlearticle/<int:id>', methods=['GET'])
 def show(id):
@@ -21,27 +21,34 @@ def show(id):
   return article_schema.jsonify(article), 200
 
 
-@router.route('/teas', methods=['POST'])
+@router.route('/singlearticle/<int:article_id>/reaction', methods=['POST'])
 @secure_route
 def create():
-    json_im_posting = request.get_json()
-    json_im_posting['drinker_id'] = g.current_user.id
+    reaction_response = request.get_json()
+    reaction_response['reader_id'] = g.current_user.id
 
     try:
-        tea = tea_schema.load(json_im_posting)
+        reaction = reaction_schema.load(reaction_response)
     except ValidationError as e:
         return jsonify({'errors': e.messages, 'message': 'Something went wrong!'})
 
-    tea.save()
-    return tea_schema.jsonify(tea), 201
+    reaction.save()
+    return reaction_schema.jsonify(reaction), 201
 
 
+@router.route('/singlearticle/<int:article_id/>/flag', methods=['POST'])
+@secure_route
+def create():
+    flag_response = request.get_json()
+    flag_response['reader_id'] = g.current_user.id
 
+    try:
+        flag = flag_schema.load(flag_response)
+    except ValidationError as e:
+        return jsonify({'errors': e.messages, 'message': 'Something went wrong!'})
 
-
-
-
-
+    flag.save()
+    return flag_schema.jsonify(flag), 201
 
 
 # !to adapt code for articles
