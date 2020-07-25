@@ -15,7 +15,7 @@ class User(db.Model, BaseModel):
     email = db.Column(db.String(128), nullable=True, unique=True)
     password_hash = db.Column(db.String(128), nullable=True)
 
-    flag_count = db.Column(db.Integer, nullable=False)
+    flag_count = db.Column(db.Integer, nullable=True)
 
     @hybrid_property
     def password(self):
@@ -47,12 +47,12 @@ class User(db.Model, BaseModel):
 class UserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 
     @validates_schema
-    def check_passwords_match(self, date, **kwargs):
-        if data['password'] != data['password_confirmation']:
-            raise ValidationError(
-                'Passwords dont match',
-                'password_confirmation'
-            )
+    def check_passwords_match(self, data, **kwargs):
+      if data['password'] != data['password_confirmation']:
+        raise ValidationError(
+          'Passwords dont match',
+          'password_confirmation'
+        )
 
     password = fields.String(required=True)
     password_confirmation = fields.String(required=True)
