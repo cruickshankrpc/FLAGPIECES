@@ -1,1 +1,7 @@
-{}
+{
+  "cSpell.ignoreWords": [
+    "bcrypt",
+    "jsonify",
+    "pyjwt"
+  ]
+}
