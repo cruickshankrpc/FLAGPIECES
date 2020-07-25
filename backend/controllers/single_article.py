@@ -36,9 +36,9 @@ def create():
     return reaction_schema.jsonify(reaction), 201
 
 
-@router.route('/singlearticle/<int:article_id/>/flag', methods=['POST'])
+@router.route('/singlearticle/<int:article_id>/flag', methods=['POST'])
 @secure_route
-def create():
+def flag_create():
     flag_response = request.get_json()
     flag_response['reader_id'] = g.current_user.id
 
@@ -56,14 +56,14 @@ def create():
 # ? Why use article_id here but not with when getting the article i.e. we only use <int:id>
 # ? Could be a convention of Blueprint/ router
 
-@router.route('/singlearticle/<int:article_id>/comments', methods=['POST'])
-def comment_create(article_id):
-    comment_data = request.get_json()
-    article = article.query.get(article_id)
-    comment = comment_schema.load(comment_data)
-    # At this stage, comment has only comment.content !!!
-    # ! This tells sqlalchemy which article our comment is associated with
-    comment.article = article
-    # At this stage, the comment is complete
-    comment.save()
-    return comment_schema.jsonify(comment)
+# @router.route('/singlearticle/<int:article_id>/comments', methods=['POST'])
+# def comment_create(article_id):
+#     comment_data = request.get_json()
+#     article = article.query.get(article_id)
+#     comment = comment_schema.load(comment_data)
+#     # At this stage, comment has only comment.content !!!
+#     # ! This tells sqlalchemy which article our comment is associated with
+#     comment.article = article
+#     # At this stage, the comment is complete
+#     comment.save()
+#     return comment_schema.jsonify(comment)

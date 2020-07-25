@@ -14,3 +14,14 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 bcrypt = Bcrypt(app)
+
+
+
+from controllers import users, single_article
+
+
+# app.register_blueprint(teas.router, url_prefix="/api")
+
+
+app.register_blueprint(users.router, url_prefix="/api")
+app.register_blueprint(single_article.router, url_prefix="/api")

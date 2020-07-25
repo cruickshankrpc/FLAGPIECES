@@ -26,7 +26,20 @@ with app.app_context():
     password="richard"
   )
 
-  db.session.add(raquel)
+  testArticle = Article(
+    id = 12345,
+    title = "titletest",
+    name = "nametest",
+    url = "urltest",
+    urlToImage = "urltoImage",
+    publishedAt = 123,
+    content = "content"
+  )
+
+
+
+
+  db.session.add(testArticle)
   db.session.add(richard)
   db.session.commit()
 

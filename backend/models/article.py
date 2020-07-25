@@ -31,7 +31,7 @@ class Comment(db.Model, BaseModel):
 
     __tablename__ = 'comments'
 
-    content = db.Column(db.Text, nullable=False)
+    content = db.Column(db.Text, nullable=True)
 
     article_id = db.Column(db.Integer, db.ForeignKey('articles.id'))
     article = db.relationship('Article', backref='comments')

@@ -6,10 +6,10 @@ class Reaction(db.Model, BaseModel):
 
   __tablename__ = 'reactions'
 
-  name = db.Column(db.String(25), nullable=False)
+  name = db.Column(db.String(25), nullable=True)
 
-  image = db.Column(db.String(25), nullable=False)
-  count = db.Column(db.Integer, nullable=False)
+  image = db.Column(db.String(25), nullable=True)
+  count = db.Column(db.Integer, nullable=True)
 
 
 class ReactionSchema(ma.SQLAlchemyAutoSchema):
