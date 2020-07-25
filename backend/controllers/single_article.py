@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, g
-from models.article import Article, ArticleSchema, Flag, FlagSchema, Comment, CommentSchema
+from models.article import Article, ArticleSchema, Comment, CommentSchema, Flag, FlagSchema
+# from models.flag import Flag, FlagSchema
 from models.reaction import Reaction, ReactionSchema
 from app import db
 from lib.secure_route import secure_route
@@ -56,14 +57,14 @@ def flag_create():
 # ? Why use article_id here but not with when getting the article i.e. we only use <int:id>
 # ? Could be a convention of Blueprint/ router
 
-# @router.route('/singlearticle/<int:article_id>/comments', methods=['POST'])
-# def comment_create(article_id):
-#     comment_data = request.get_json()
-#     article = article.query.get(article_id)
-#     comment = comment_schema.load(comment_data)
-#     # At this stage, comment has only comment.content !!!
-#     # ! This tells sqlalchemy which article our comment is associated with
-#     comment.article = article
-#     # At this stage, the comment is complete
-#     comment.save()
-#     return comment_schema.jsonify(comment)
+@router.route('/singlearticle/<int:article_id>/comments', methods=['POST'])
+def comment_create(article_id):
+    comment_data = request.get_json()
+    article = article.query.get(article_id)
+    comment = comment_schema.load(comment_data)
+    # At this stage, comment has only comment.content !!!
+    # ! This tells sqlalchemy which article our comment is associated with
+    comment.article = article
+    # At this stage, the comment is complete
+    comment.save()
+    return comment_schema.jsonify(comment)

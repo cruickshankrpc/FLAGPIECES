@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, g
 from models.article import Article, ArticleSchema, Flag, FlagSchema
+# from models.flag import Flag, FlagSchema
 from app import db
 from lib.secure_route import secure_route
 from marshmallow import ValidationError
@@ -11,7 +12,7 @@ flag_schema = FlagSchema()
 router = Blueprint(__name__, 'countryarticle')
  
 
-@router.route('/countryarticles', methods=['POST'])
+@router.route('/countryarticles/article', methods=['POST'])
 @secure_route
 def create():
     article_response = request.get_json()
@@ -26,9 +27,9 @@ def create():
     return article_schema.jsonify(article), 201
 
 
-@router.route('/countryarticles', methods=['POST'])
+@router.route('/countryarticles/flags', methods=['POST'])
 @secure_route
-def create():
+def flag_create():
     flag_response = request.get_json()
     flag_response['reader_id'] = g.current_user.id
 
