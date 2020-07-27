@@ -8,6 +8,8 @@ article_schema = ArticleSchema()
 
 router = Blueprint(__name__, 'userarticle')
 
+# ! get the articles associated with the user?
+
 @router.route('/userarticle/<int:id>', methods=['GET'])
 @secure_route
 def show(id):

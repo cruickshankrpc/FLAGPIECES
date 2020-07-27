@@ -1,32 +1,38 @@
 from flask import Blueprint, request, jsonify, g
-from models.user import User, UserSchema 
+from models.user import User, UserSchema
 from app import db
 from lib.secure_route import secure_route
 
 user_schema = UserSchema()
 
-router = Blueprint(__name__, 'users')
+router = Blueprint(__name__, "users")
 
-@router.route('/register', methods=['POST'])
+
+@router.route("/register", methods=["POST"])
 def register():
-  user = user_schema.load(request.get_json())
-  user.save()
-  return user_schema.jsonify(user)
+    user = user_schema.load(request.get_json())
+    user.save()
+    return user_schema.jsonify(user)
 
-@router.route('/profile', methods=['GET'])
+
+@router.route("/profile", methods=["GET"])
 @secure_route
 def profile():
-  user = User.query.get(g.current_user.id)
-  return user_schema.jsonify(user)
+    user = User.query.get(g.current_user.id)
+    return user_schema.jsonify(user)
 
-@router.route('/login', methods=['POST'])
+    # ! explore filter_by methods? Use similar for filtering for reactions?
+    # user = User.query.filter_by(image=data['image']).first()
+
+
+@router.route("/login", methods=["POST"])
 def login():
-  data = request.get_json()
-  user = User.query.filter_by(email=data['email']).first()
-  if not user or not user.validate_password(data['password']):
-    return jsonify({ 'message': 'Unauthorized' })
+    data = request.get_json()
+    user = User.query.filter_by(email=data["email"]).first()
+    if not user or not user.validate_password(data["password"]):
+        return jsonify({"message": "Unauthorized"})
 
-  # add method from pyjwt to our model 
-  token = user.generate_token()
+    # add method from pyjwt to our model
+    token = user.generate_token()
 
-  return jsonify({ 'token': token, 'message': 'Welcome back!' })
+    return jsonify({"token": token, "message": "Welcome back!"})

@@ -3,5 +3,6 @@
     "bcrypt",
     "jsonify",
     "pyjwt"
-  ]
+  ],
+  "python.formatting.provider": "black"
 }
