@@ -1,10 +1,5 @@
 from flask import Blueprint, request, jsonify, g
-from models.article import (
-    Article,
-    ArticleSchema,
-    Comment,
-    CommentSchema,
-)
+from models.article import (Article, ArticleSchema, Comment, CommentSchema)
 
 from models.reaction import Reaction, ReactionSchema
 from app import db
@@ -63,12 +58,24 @@ def reaction_create(article_id):
 
   reaction = request.get_json()
   print('REACTION:', reaction)
-  try: 
-    new_reaction = reaction_schema.load(reaction)
-  except ValidationError as error: 
-    return jsonify({ 'Errors':error.messages, 'Message':'Bad Request'})
+  # try: 
+  new_reaction = reaction_schema.load(reaction)
+  # except ValidationError as error: 
+    # return jsonify({ 'Errors':error.messages, 'Message':'Bad Request'})
+  existing_article = Article.query.get(article_id)
+
+  article = article_schema.dumps(existing_article)
+  print('ARTICLE', article)
+  # updated_article = article_schema.load(article)
+  # print('UPDATE', updated_article)
+
   
   new_reaction.save()
+  existing_article.reactions = existing_article.reactions + [new_reaction]
+  print('EXISTING', existing_article.reactions)
+  existing_article.save()
+
+  
   return reaction_schema.jsonify(new_reaction), 201
 
   # existing_article = Article.query.get(article_id)

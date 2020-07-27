@@ -51,6 +51,7 @@ class UserSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
           'Passwords dont match',
           'password_confirmation'
       )
+      
 
   password = fields.String(required=True)
   password_confirmation = fields.String(required=True)
