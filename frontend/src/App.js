@@ -5,22 +5,31 @@ const App = () => {
 
   // country articles page: 
 
-  const API_KEY = process.env.NEWS_KEY
+  // const API_KEY = process.env.NEWS_KEY
 
-  const [country, setCountry] = useState([])
+  // const [search, setSearch] = useState('')
 
-  const countryArticles = (() => {
-    axios.get(`https://newsapi.org/v2/everything?q=${country}&${API_KEY}`)
-      .then(article => {
-        setCountry(article.data.results)
-      })
-  })
+  const [articles, setArticles] = useState([])
 
   useEffect(() => {
-    countryArticles()
+    axios.get('https://newsapi.org/v2/everything?q=iceland&language=en&apiKey=59129570db024a9aaaeb6c5af565d124')
+      .then(axiosResp => {
+        setArticles(axiosResp.data)
+        console.log(axiosResp.data)
+      })
   }, [])
 
-  return <h1>Hello {country}</h1>
+
+  // console.log(data)
+  console.log('articles:', articles.articles)
+  
+  return <div>
+    {articles.map((article, index) => {
+      return <div key={index} className="articles-container">
+        <h1>{article.source.title} Hello</h1>
+      </div>
+    })}
+  </div>
 }
 
 export default App
