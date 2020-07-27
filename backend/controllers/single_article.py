@@ -55,27 +55,19 @@ def show(id):
 @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
 @secure_route
 def reaction_create(article_id):
-
+  # posting reaction
   reaction = request.get_json()
-  print('REACTION:', reaction)
-  # try: 
+  # loading new reaction to schema 
   new_reaction = reaction_schema.load(reaction)
-  # except ValidationError as error: 
-    # return jsonify({ 'Errors':error.messages, 'Message':'Bad Request'})
+  # finding article by id
   existing_article = Article.query.get(article_id)
-
-  article = article_schema.dumps(existing_article)
-  print('ARTICLE', article)
-  # updated_article = article_schema.load(article)
-  # print('UPDATE', updated_article)
-
-  
+  # saving new reaction
   new_reaction.save()
+  # joining article with new reaction (plus is python)
   existing_article.reactions = existing_article.reactions + [new_reaction]
-  print('EXISTING', existing_article.reactions)
+  # saving
   existing_article.save()
 
-  
   return reaction_schema.jsonify(new_reaction), 201
 
   # existing_article = Article.query.get(article_id)
