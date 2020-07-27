@@ -13,6 +13,7 @@ from marshmallow import ValidationError
 
 article_schema = ArticleSchema()
 comment_schema = CommentSchema()
+reaction_schema = ReactionSchema()
 
 router = Blueprint(__name__, "singlearticle")
 
@@ -28,25 +29,67 @@ router = Blueprint(__name__, "singlearticle")
 
 @router.route("/singlearticle/<int:id>", methods=["GET"])
 def show(id):
-    article = Article.query.get(id)
+  article = Article.query.get(id)
+  
 
-    if not article:
-        return jsonify({"message": "article not shown"}), 404
+  if not article:
+    return jsonify({"message": "article not shown"}), 404
 
-    return article_schema.jsonify(article), 200
+  return article_schema.jsonify(article), 200
 
+
+# @router.route("/singlearticle/<int:article_id>/reaction", methods=["PUT"])
+# @secure_route
+# def reaction_create(article_id):
+#   print(article_id)
+#   existing_article = Article.query.get(article_id)
+#   reaction = Reaction.query.get(request.get_json()['reactions'])
+#   print(reaction)
+#   new_article = request.get_json()
+#   new_article['reactions'] = reaction
+#   print('this is new article:', new_article)
+#   article = article_schema.load(new_article, instance=existing_article, partial=True)
+#   print(reaction['reactions'])
+
+#   if article.reader != g.current_user:
+#     return jsonify({'message': 'Unauthorized'}), 401
+
+#   article.save()
+#   return article_schema.jsonify(article), 201
 
 @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
 @secure_route
-def create():
-    reaction_response = request.get_json()
+def reaction_create(article_id):
 
-    try:
-        reaction = reaction_schema.load(reaction_response)
-    except ValidationError as e:
-        return jsonify({"errors": e.messages, "message": "Something went wrong!"})
-    reaction.save()
-    return reaction_schema.jsonify(reaction), 201
+  reaction = request.get_json()
+  print('REACTION:', reaction)
+  try: 
+    new_reaction = reaction_schema.load(reaction)
+  except ValidationError as error: 
+    return jsonify({ 'Errors':error.messages, 'Message':'Bad Request'})
+  
+  new_reaction.save()
+  return reaction_schema.jsonify(new_reaction), 201
+
+  # existing_article = Article.query.get(article_id)
+  
+  # article = article_schema.load(article_schema.dump(existing_article), instance=existing_article, partial=True)
+  # article['reactions'].append(reaction())
+  
+  # if article.reader != g.current_user:
+  #   return jsonify({'message': 'Unauthorized'}), 401
+
+  # article.save()
+  # return article_schema.jsonify(article), 201
+
+
+
+    # try:
+    #     reaction = reaction_schema.load(reaction_response)
+    # except ValidationError as e:
+    #     return jsonify({"errors": e.messages, "message": "Something went wrong!"})
+    # reaction.save()
+    # return reaction_schema.jsonify(reaction), 201
 
 
 # @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
@@ -65,13 +108,10 @@ def create():
 # ! delete/ comment the other method using many to many
 
 
-S
-
-
 @router.route("/singlearticle/<int:article_id>/comments", methods=["POST"])
 def comment_create(article_id):
     comment_data = request.get_json()
-    article = article.query.get(article_id)
+    article = Article.query.get(article_id)
     comment = comment_schema.load(comment_data)
     # At this stage, comment has only comment.content !!!
     # ! This tells sqlalchemy which article our comment is associated with

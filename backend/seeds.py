@@ -1,6 +1,6 @@
 from app import app, db
 from models.reaction import Reaction
-from models.article import Article, Comment, Flag
+from models.article import Article, Comment
 from models.user import User
 
 with app.app_context():
@@ -37,7 +37,8 @@ with app.app_context():
         urlToImage="urltoImage",
         publishedAt=123,
         content="content",
-        reactions=[angry],
+        reactions=[angry, happy],
+        reader_id=1
     )
 
     db.session.add(testArticle)

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, g
 from models.article import Article, ArticleSchema
 from app import db
 from lib.secure_route import secure_route
