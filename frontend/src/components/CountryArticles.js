@@ -11,7 +11,7 @@ const CountryArticles = () => {
   // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
   // const [country, setCountry] = useState('america')
-// apiKey=
+  // apiKey=
   const country = 'america'
 
   // const flags = {
@@ -42,7 +42,7 @@ const CountryArticles = () => {
 
 
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&${API_KEY}`)
+    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=${API_KEY}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
       })
