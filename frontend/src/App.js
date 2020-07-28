@@ -9,7 +9,7 @@ const App = () => {
 
   // const [search, setSearch] = useState('')
 
-  const [articles, setArticles] = useState([])
+  const [articles, setArticles] = useState({ data: [] })
 
   useEffect(() => {
     axios.get('https://newsapi.org/v2/everything?q=iceland&language=en&apiKey=59129570db024a9aaaeb6c5af565d124')
@@ -21,15 +21,29 @@ const App = () => {
 
 
   // console.log(data)
-  console.log('articles:', articles.articles)
+  console.log('these are articles:', articles.articles)
+  
   
   return <div>
-    {articles.map((article, index) => {
+    {articles.forEach(function (arrayItem, index) {
       return <div key={index} className="articles-container">
-        <h1>{article.source.title} Hello</h1>
+        <h1>{articles.author} Hello</h1>
       </div>
     })}
+    
   </div>
+
+
+
+  // return <div>
+  //   {articles.articles.map((article, index) => {
+  //     return <div key={index} className="articles-container">
+  //       <h1>{articles.author} Hello</h1>
+  //     </div>
+  //   })}
+  // </div>
 }
 
 export default App
+
+// articles.articles then an array of objects
