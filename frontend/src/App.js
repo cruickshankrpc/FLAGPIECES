@@ -8,7 +8,7 @@ import HomePage from './components/HomePage'
 import Register from './components/Register'
 import Login from './components/Login'
 import CountryArticles from './components/CountryArticles'
-// import SingleArticle from './components/SingleArticle'
+import SingleArticle from './components/SingleArticle'
 
 const App = () => {
 
@@ -19,7 +19,7 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
       <Route path="/countryarticles" component={CountryArticles} />
-      {/* <Route path="/singlearticle" component={SingleArticle} /> */}
+      <Route path="/singlearticle/:id" component={SingleArticle} />
     </Switch>
   </HashRouter>
 

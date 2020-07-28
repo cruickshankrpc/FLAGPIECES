@@ -4,14 +4,14 @@ import axios from 'axios'
 
 // pass country into countryarticles
 
-const CountryArticles = () => {
+const CountryArticles = (props) => {
   // country articles page: 
-  const API_KEY = '59129570db024a9aaaeb6c5af565d124'
+  const API_KEY = 'apiKey=59129570db024a9aaaeb6c5af565d124'
 
   // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
   // const [country, setCountry] = useState('america')
-// apiKey=
+  // apiKey=
   const country = 'america'
 
   // const flags = {
@@ -37,7 +37,8 @@ const CountryArticles = () => {
       , {
         headers: { Authorization: `Bearer ${token}` }
       }
-    )
+
+    ).then((res) => props.history.push(`/singlearticle/${res.data.id}`))
   }
 
 
