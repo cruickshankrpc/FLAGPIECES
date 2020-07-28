@@ -14,32 +14,27 @@ body {
 }
 
 // **** REGISTER/LOGIN START **** //
-
-.register-form, .login-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-
+.register-form,
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 input {
-  padding: 0.6vh;
-  margin: 1vh;
+    padding: 0.6vh;
+    margin: 1vh;
 }
 
 button {
-  padding: 1vh;
-  border-radius: 0.5vh;
+    padding: 1vh;
+    border-radius: 0.5vh;
 }
 
-
-
 // **** REGISTER/LOGIN END **** //
-
 // **** COUNTRY ARTICLES START **** //
-
 .country-articles-container {
     display: flex;
     flex-direction: column;
@@ -55,3 +50,11 @@ button {
 }
 
 // **** COUNTRY ARTICLES END **** //
+// **** SINGLE ARTICLES START **** //
+.single-article-container {
+    h2 {
+        font-size: 80px;
+    }
+}
+
+// **** SINGLE ARTICLES END **** //
