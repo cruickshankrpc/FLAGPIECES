@@ -4,10 +4,12 @@ import axios from 'axios'
 
 const CountryArticles = () => {
   // country articles page: 
-  // const API_KEY = process.env.NEWS_KEY
+  const API_KEY = '59129570db024a9aaaeb6c5af565d124'
+
+  // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
   // const [country, setCountry] = useState('america')
-
+// apiKey=
   const country = 'america'
 
   // const flags = {
@@ -19,7 +21,7 @@ const CountryArticles = () => {
 
 
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=59129570db024a9aaaeb6c5af565d124`)
+    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&${API_KEY}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
       })

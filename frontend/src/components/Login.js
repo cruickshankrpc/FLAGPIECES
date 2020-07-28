@@ -1,19 +1,13 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { login } from '../lib/auth'
-import { UserContext } from '../UserContext'
-// import { ProgressPlugin } from 'webpack'
-
 
 const Login = (props) => {
 
-  const { user, setUser } = useState()
   const [formData, updateFormData] = useState({
     email: '',
     password: ''
   })
-
-  const { setUserInfo } = useContext(UserContext)
 
   function handleChange(event) {
     const name = event.target.name
@@ -29,7 +23,7 @@ const Login = (props) => {
     axios.post('/api/login', formData)
       .then(resp => {
         login(resp.data.token)
-        setUserInfo(resp.data.user)
+        console.log(resp.data)
         props.history.push('/')
       })
       .catch(err => console.log(err.response))
