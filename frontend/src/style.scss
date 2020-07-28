@@ -1,17 +1,45 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Inconsolata', monospace;
 }
 
 body {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Inconsolata', monospace;
     display: flex;
     justify-content: center;
     padding: 8rem;
 }
+
+// **** REGISTER/LOGIN START **** //
+
+.register-form, .login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  
+
+}
+
+input {
+  padding: 0.6vh;
+  margin: 1vh;
+}
+
+button {
+  padding: 1vh;
+  border-radius: 0.5vh;
+}
+
+
+
+// **** REGISTER/LOGIN END **** //
+
+// **** COUNTRY ARTICLES START **** //
 
 .country-articles-container {
     display: flex;
@@ -25,3 +53,5 @@ body {
     align-items: center;
     padding-bottom: 5rem;
 }
+
+// **** COUNTRY ARTICLES END **** //

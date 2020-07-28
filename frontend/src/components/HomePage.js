@@ -7,6 +7,8 @@ import CountryArticles from './CountryArticles'
 
 const HomePage = () => {
 
+  return <h1>Home</h1>
+
 
 
 
