@@ -61,7 +61,7 @@ const SingleArticle = (props) => {
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit1()
-      }}>😠</button>
+      }} >😠</button>
       {/* <button onClick={(event) => {
         event.preventDefault()
         handleSubmit2(reaction)
