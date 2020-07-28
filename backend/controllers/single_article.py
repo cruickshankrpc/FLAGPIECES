@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, g
-from models.article import (Article, ArticleSchema, Comment, CommentSchema)
+from models.article import Article, ArticleSchema, Comment, CommentSchema
 
 from models.reaction import Reaction, ReactionSchema
 from app import db
@@ -24,13 +24,12 @@ router = Blueprint(__name__, "singlearticle")
 
 @router.route("/singlearticle/<int:id>", methods=["GET"])
 def show(id):
-  article = Article.query.get(id)
-  
+    article = Article.query.get(id)
 
-  if not article:
-    return jsonify({"message": "article not shown"}), 404
+    if not article:
+        return jsonify({"message": "article not shown"}), 404
 
-  return article_schema.jsonify(article), 200
+    return article_schema.jsonify(article), 200
 
 
 # @router.route("/singlearticle/<int:article_id>/reaction", methods=["PUT"])
@@ -52,36 +51,38 @@ def show(id):
 #   article.save()
 #   return article_schema.jsonify(article), 201
 
+
 @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
 @secure_route
 def reaction_create(article_id):
-  # posting reaction
-  reaction = request.get_json()
-  # loading new reaction to schema 
-  new_reaction = reaction_schema.load(reaction)
-  # finding article by id
-  existing_article = Article.query.get(article_id)
-  # saving new reaction
-  new_reaction.save()
-  # joining article with new reaction (plus is python)
-  existing_article.reactions = existing_article.reactions + [new_reaction]
-  # saving
-  existing_article.save()
+    # posting reaction
+    reaction = request.get_json()
+    # loading new reaction to schema
+    new_reaction = reaction_schema.load(reaction)
+    # finding article by id
+    existing_article = Article.query.get(article_id)
+    # saving new reaction
+    new_reaction.save()
 
-  return reaction_schema.jsonify(new_reaction), 201
+    #  joining article with new reactions  (plus is python)
+    #   (referring to the relationship of reactions = db.relationship( "Reaction", secondary=articles_reactions, backref="articles")
 
-  # existing_article = Article.query.get(article_id)
-  
-  # article = article_schema.load(article_schema.dump(existing_article), instance=existing_article, partial=True)
-  # article['reactions'].append(reaction())
-  
-  # if article.reader != g.current_user:
-  #   return jsonify({'message': 'Unauthorized'}), 401
+    existing_article.reactions = existing_article.reactions + [new_reaction]
+    # saving
+    existing_article.save()
 
-  # article.save()
-  # return article_schema.jsonify(article), 201
+    return reaction_schema.jsonify(new_reaction), 201
 
+    # existing_article = Article.query.get(article_id)
 
+    # article = article_schema.load(article_schema.dump(existing_article), instance=existing_article, partial=True)
+    # article['reactions'].append(reaction())
+
+    # if article.reader != g.current_user:
+    #   return jsonify({'message': 'Unauthorized'}), 401
+
+    # article.save()
+    # return article_schema.jsonify(article), 201
 
     # try:
     #     reaction = reaction_schema.load(reaction_response)
