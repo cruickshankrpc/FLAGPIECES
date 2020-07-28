@@ -7,29 +7,17 @@ import axios from 'axios'
 const SingleArticle = (props) => {
 
   const [articles, setArticles] = useState({})
-  // const [reaction, setReaction] = useState({
-
-  //   image: '',
-  //   name: ''
-  // })
+  const [colour, setColour] = useState('pink')
 
   function handleSubmit1() {
     const reaction = {
       image: '😠',
       name: 'angry'
     }
-    console.log(reaction)
-    // setReaction(reaction)
 
-    // const emoji = {
-    //   america: '🇺🇸',
-    //   uk: '🇬🇧'
-    // }
-    // const newItem = { ...item, flag_image: countryEmojiMap[country] }
-    // delete newItem['author']
-    // delete newItem['description']
-    // delete newItem['source']
-    // console.log(newItem)
+    
+    console.log(reaction)
+
 
     const token = localStorage.getItem('token')
     axios.post(`/api/singlearticle/${props.match.params.id}/reaction`, reaction
@@ -61,7 +49,8 @@ const SingleArticle = (props) => {
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit1()
-      }} >😠</button>
+        setColour('lime')
+      }} style={{ background: `${colour}` }}>😠</button>
       {/* <button onClick={(event) => {
         event.preventDefault()
         handleSubmit2(reaction)
