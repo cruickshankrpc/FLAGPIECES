@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+// pass country into countryarticles
+
 const CountryArticles = () => {
   // country articles page: 
   // const API_KEY = process.env.NEWS_KEY
@@ -12,10 +14,29 @@ const CountryArticles = () => {
 
   // const flags = {
   //   'america': '🇺🇸'
-    // United Arab Emirates
-    //  Argentina
-    // Austria
+  // United Arab Emirates
+  //  Argentina
+  // Austria
   // }
+
+  //  inside onclick 
+  function handleSubmit(item) {
+    const countryEmojiMap = {
+      america: '🇺🇸',
+      uk: '🇬🇧'
+    }
+    const newItem = { ...item, flag_image: countryEmojiMap[country] }
+    delete newItem['author']
+    delete newItem['description']
+    delete newItem['source']
+    console.log(newItem)
+    const token = localStorage.getItem('token')
+    axios.post('/api/countryarticles/article', newItem
+      , {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    )
+  }
 
 
   useEffect(() => {
@@ -30,8 +51,6 @@ const CountryArticles = () => {
       {articles.map((item, index) => {
         return <div key={index}>
           <h3>{item.title}</h3>
-          <p>{item.source.name}</p>
-          <p>{item.author}</p>
           <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
           <img src={item.urlToImage} />
           <p>{item.publishedAt}</p>
@@ -45,20 +64,6 @@ const CountryArticles = () => {
     </div>
   </section>
 
-  //  inside onclick 
-  function handleSubmit(item) {
-    event.preventDefault()
-    // grabs flags from our flag obj
-    // const obj = {
-    //   'flag': flags[country]
-    // }
-    // const token = localStorage.getItem('token')
-    axios.post('/api/countryarticles/article', item
-    // , {
-    //   headers: { Authorization: `Bearer ${token}` }
-    // }
-    )
-  }
 
 
 

@@ -23,13 +23,13 @@ class Article(db.Model, BaseModel):
 
     __tablename__ = "articles"
 
-    title = db.Column(db.String(80), nullable=False)
+    title = db.Column(db.Text, nullable=False)
     # name is the news source (e.g. BBC News)
-    name = db.Column(db.String(40), nullable=False)
-    url = db.Column(db.String(40), nullable=False)
-    urlToImage = db.Column(db.String(40), nullable=False)
-    publishedAt = db.Column(db.Integer, nullable=False)
-    content = db.Column(db.Text, nullable=False)
+    name = db.Column(db.Text, nullable=True)
+    url = db.Column(db.Text, nullable=True)
+    urlToImage = db.Column(db.Text, nullable=True)
+    publishedAt = db.Column(db.String(25), nullable=True)
+    content = db.Column(db.Text, nullable=True)
     flag_image = db.Column(db.String(25), nullable=True)
 
     reactions = db.relationship(
