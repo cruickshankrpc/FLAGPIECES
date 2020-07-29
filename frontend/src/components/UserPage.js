@@ -18,20 +18,13 @@ const UserPage = () => {
       })
   }, [])
 
-  console.log('USER ARTICLES', userArticles.reader_articles)
-
-
-  // return <section>
-  //   <h1>USER</h1>
-  //   <h1>{userArticles.reader}</h1>
-
-  // </section>
-
   return <section className="country-articles-container">
     <div className="article-card">
+      <h1>YOUR READ ARTICLES</h1>
       {userArticles.map((item, index) => {
         return <div key={index} className="card">
           <h3>{item.title}</h3>
+          <p>{item.flag_image}</p>
           <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
           <img src={item.urlToImage} />
           <p>{item.publishedAt}</p>
@@ -40,15 +33,9 @@ const UserPage = () => {
             return <div key={index}>
               <p>{reaction.image}</p>
             </div>
-
           })}
-          {/* <button onClick={(event) => {
-            event.preventDefault()
-            handleSubmit(item)
-          }}>READ</button> */}
         </div>
       })}
-
     </div>
   </section>
 
