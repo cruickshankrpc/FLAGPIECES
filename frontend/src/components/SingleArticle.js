@@ -177,7 +177,6 @@ const SingleArticle = (props) => {
           </div>
         
           <button onClick={handleComment} className="button is-info">Submit</button>
-         
         </div>
 
 
