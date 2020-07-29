@@ -11,7 +11,7 @@ router = Blueprint(__name__, "countryarticle")
 
 
 @router.route("/countryarticles/article", methods=["POST"])
-# @secure_route
+@secure_route
 def create():
     article_response = request.get_json()
     # article_response['reader_id'] = g.current_user.id

@@ -9,6 +9,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import CountryArticles from './components/CountryArticles'
 import SingleArticle from './components/SingleArticle'
+import UserPage from './components/UserPage'
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/countryarticles" component={CountryArticles} />
       <Route path="/singlearticle/:id" component={SingleArticle} />
+      <Route path="/userpage/:id" component={UserPage} />
     </Switch>
   </HashRouter>
 

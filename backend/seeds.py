@@ -38,7 +38,31 @@ with app.app_context():
         publishedAt=123,
         content="content",
         reactions=[angry, happy],
-        reader_id=1
+        reader_id=1,
+    )
+
+    testArticle = Article(
+        id=12346,
+        title="titletest",
+        name="nametest",
+        url="urltest",
+        urlToImage="urltoImage",
+        publishedAt=123,
+        content="content",
+        reactions=[angry, happy],
+        reader_id=1,
+    )
+
+    testArticle = Article(
+        id=12347,
+        title="titletest",
+        name="nametest",
+        url="urltest",
+        urlToImage="urltoImage",
+        publishedAt=123,
+        content="content",
+        reactions=[angry, happy],
+        reader_id=1,
     )
 
     db.session.add(testArticle)

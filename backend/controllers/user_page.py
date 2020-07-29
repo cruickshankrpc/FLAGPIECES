@@ -6,17 +6,18 @@ from lib.secure_route import secure_route
 
 article_schema = ArticleSchema()
 
-router = Blueprint(__name__, 'userarticle')
+router = Blueprint(__name__, "userpage")
 
 # ! get the articles associated with the user?
 
-@router.route('/userarticle/<int:id>', methods=['GET'])
+
+@router.route("/userpage/<int:reader_id>", methods=["GET"])
 @secure_route
-def show(id):
-  article = Article.query.get(id)
-      
-  if not article:
-    return jsonify({'message': 'article not shown'}), 404
+def show(reader_id):
+    article = Article.query.filter_by(reader_id="1").first()
+    # article = Article.find_
 
-  return article_schema.jsonify(article), 200
+    if not article:
+        return jsonify({"message": "article not shown"}), 404
 
+    return article_schema.jsonify(article), 200
