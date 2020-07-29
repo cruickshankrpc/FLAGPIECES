@@ -49,12 +49,24 @@ button {
     // width: 200px;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
 // **** COUNTRY ARTICLES END **** //
 // **** SINGLE ARTICLES START **** //
 .single-article-container {
     h2 {
-        font-size: 80px;
+        font-size: 40px;
     }
+}
+
+.single-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 // **** SINGLE ARTICLES END **** //

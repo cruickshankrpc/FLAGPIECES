@@ -14,8 +14,13 @@ const CountryArticles = (props) => {
 
   const country = props.match.params.country
 
+  console.log('CONST:',country)
+  console.log('PROPSCOUNTRY:', props.match.params.country)
+  console.log('PROPS:', props)
+
   // const flags = {
   //   'america': '🇺🇸'
+  console.log('PROPS:', props.match.params.country)
   // United Arab Emirates
   //  Argentina
   // Austria
@@ -47,12 +52,12 @@ const CountryArticles = (props) => {
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
       })
-  }, [])
+  }, [country])
 
   return <section className="country-articles-container">
     <div className="article-card">
       {articles.map((item, index) => {
-        return <div key={index}>
+        return <div key={index} className="card">
           <h3>{item.title}</h3>
           <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
           <img src={item.urlToImage} />
