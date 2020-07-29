@@ -7,6 +7,7 @@ import axios from 'axios'
 const SingleArticle = (props) => {
 
   const [articles, setArticles] = useState({})
+
   const [colourAngry, setAngry] = useState('pink')
   const [colourHappy, setHappy] = useState('pink')
   const [colourFunny, setFunny] = useState('pink')
@@ -99,6 +100,8 @@ const SingleArticle = (props) => {
       <img src={articles.urlToImage} />
       <p>{articles.publishedAt}</p>
       <p>{articles.content}</p>
+
+
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit1()
@@ -112,12 +115,6 @@ const SingleArticle = (props) => {
         handleSubmit2()
         setHappy('lime')
       }} style={{ background: `${colourHappy}` }}> <big>😊</big></button>
-
-      <button onClick={(event) => {
-        event.preventDefault()
-        handleSubmit3()
-        setFunny('lime')
-      }} style={{ background: `${colourFunny}` }}><big>😂</big></button>
 
       <button onClick={(event) => {
         event.preventDefault()
