@@ -103,7 +103,7 @@ const SingleArticle = (props) => {
         event.preventDefault()
         handleSubmit1()
         setAngry('lime')
-      }} style={{ background: `${colourAngry}` }}>😠</button>
+      }} style={{ background: `${colourAngry}` }}><big>😠</big></button>
 
 
 
@@ -111,32 +111,32 @@ const SingleArticle = (props) => {
         event.preventDefault()
         handleSubmit2()
         setHappy('lime')
-      }} style={{ background: `${colourHappy}` }}>😊</button>
+      }} style={{ background: `${colourHappy}` }}> <big>😊</big></button>
 
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit3()
         setFunny('lime')
-      }} style={{ background: `${colourFunny}` }}>😂</button>
+      }} style={{ background: `${colourFunny}` }}><big>😂</big></button>
 
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit3()
         setFunny('lime')
-      }} style={{ background: `${colourFunny}` }}>😂</button>
+      }} style={{ background: `${colourFunny}` }}><big>😂</big></button>
 
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit4()
         setSurprised('lime')
-      }} style={{ background: `${colourSurprised}` }}>😲</button>
+      }} style={{ background: `${colourSurprised}` }}><big>😲</big></button>
 
 
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit5()
         setSad('lime')
-      }} style={{ background: `${colourSad}` }}>😓</button>
+      }} style={{ background: `${colourSad}` }}><big>😓</big></button>
 
 
     </div>
