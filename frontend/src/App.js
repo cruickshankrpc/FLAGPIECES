@@ -21,7 +21,7 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/countryarticles/:country" component={CountryArticles} />
       <Route path="/singlearticle/:id" component={SingleArticle} />
-      <Route path="/userpage/:id" component={UserPage} />
+      <Route path="/userpage" component={UserPage} />
     </Switch>
   </HashRouter>
 

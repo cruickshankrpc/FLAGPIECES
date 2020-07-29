@@ -66,7 +66,6 @@ const SingleArticle = (props) => {
 
 
   useEffect(() => {
-
     const token = localStorage.getItem('token')
     axios.post(`/api/singlearticle/${props.match.params.id}/reaction`, reaction
       , {
@@ -74,21 +73,14 @@ const SingleArticle = (props) => {
       }
     )
     console.log(reaction)
-
     // .then((res) => props.history.push(`/singlearticle/${res.data.id}`))
-
   }, [reaction])
-
-
-
-
-
 
   useEffect(() => {
     axios.get(`/api/singlearticle/${props.match.params.id}`)
       .then(axiosResp => {
         setArticles(axiosResp.data)
-        console.log('AXIOSRESP.DATA:', axiosResp.data)
+        // console.log('AXIOSRESP.DATA:', axiosResp.data)
       })
   }, [])
 
