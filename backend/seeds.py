@@ -41,7 +41,7 @@ with app.app_context():
         reader_id=1,
     )
 
-    testArticle = Article(
+    testArticle2 = Article(
         id=12346,
         title="titletest",
         name="nametest",
@@ -53,7 +53,7 @@ with app.app_context():
         reader_id=1,
     )
 
-    testArticle = Article(
+    testArticle3 = Article(
         id=12347,
         title="titletest",
         name="nametest",
@@ -66,6 +66,8 @@ with app.app_context():
     )
 
     db.session.add(testArticle)
+    db.session.add(testArticle2)
+    db.session.add(testArticle3)
     db.session.add(richard)
 
     db.session.commit()

@@ -37,7 +37,7 @@ class Article(db.Model, BaseModel):
     )
 
     reader_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
-    reader = db.relationship("User", backref="reader_id")
+    reader = db.relationship("User", backref="reader_articles")
 
     # flags = db.relationship('Flag', secondary=articles_flags, backref='flags')
 
