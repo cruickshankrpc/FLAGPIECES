@@ -9,8 +9,8 @@ const NavBar = () => {
       <div className="navbar-brand">
         <Link to="/">
           <a className="navbar-item">
-            {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZ8ZnY3ZKYhxS85b2ATGeeToxHWkECvpALnQ&usqp=CAU" width="90" height="90" /> */}
-          FLAG</a>
+            <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/triangular-flag-on-post_1f6a9.png" width="30" height="80" />
+          </a>
         </Link>
 
         <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
+// import 'bulma'
 // import { Link } from 'react-router-dom'
 
 const SingleArticle = (props) => {
@@ -102,12 +103,19 @@ const SingleArticle = (props) => {
   return <>
     <section className="single-article-container">
       <div className="single-article-card">
-        <h3>{articles.title}</h3>
-        <h2>{articles.flag_image}</h2>
-        <a href={articles.url} target='_blank' rel='noreferrer'> {articles.url} </a>
-        <img src={articles.urlToImage} />
-        <p>{moment(articles.publishedAt).calendar()}</p>
-        <p>{articles.content}</p>
+        <div className="article-card">
+          <div className="title-flag">
+            <a href={articles.url} target='_blank' rel='noreferrer'>
+              <h3>{articles.title}
+              </h3>
+            </a>
+            <h2>{articles.flag_image}</h2>
+          </div>
+
+          <img src={articles.urlToImage} />
+          <p>published:{moment(articles.publishedAt).calendar()}</p>
+          <p>{articles.content}</p>
+        </div>
 
         <div className="single-article-buttons">
           <button onClick={(event) => {
@@ -141,7 +149,7 @@ const SingleArticle = (props) => {
           }} style={{ background: `${colourSad}` }}><big>😓</big></button>
         </div>
 
-        <div>
+        <div className="comments">
           <h2>COMMENTS:</h2>
           {articles.comments && articles.comments.map(comment => {
             return <div className="media-content" key={comment.id}>
@@ -151,6 +159,8 @@ const SingleArticle = (props) => {
               </div>
             </div>
           })}
+
+
         </div>
         <div className="media-content">
           <div className="field">
@@ -165,13 +175,9 @@ const SingleArticle = (props) => {
               </textarea>
             </p>
           </div>
-          <nav className="level">
-            <div className="level-left">
-              <div className="level-item">
-                <button onClick={handleComment} className="button is-info">Submit</button>
-              </div>
-            </div>
-          </nav>
+        
+          <button onClick={handleComment} className="button is-info">Submit</button>
+         
         </div>
 
 
