@@ -67,14 +67,14 @@ const SingleArticle = (props) => {
   function handleSubmit4() {
     const surprisedReaction = {
       image: '😲',
-      name: 'suprised'
+      name: 'surprised'
     }
     setReaction(surprisedReaction)
   }
 
   function handleSubmit5() {
     const sadReaction = {
-      image: '😲',
+      image: '😓',
       name: 'sad'
     }
     setReaction(sadReaction)
