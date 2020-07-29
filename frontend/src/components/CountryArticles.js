@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
+import moment from 'moment'
 
 // pass country into countryarticles
 
@@ -55,13 +56,13 @@ const CountryArticles = (props) => {
   }, [country])
 
   return <section className="country-articles-container">
-    <div className="article-card">
+    <div className="article-container">
       {articles.map((item, index) => {
-        return <div key={index} className="card">
+        return <div key={index} className="article-card">
           <h3>{item.title}</h3>
           <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
           <img src={item.urlToImage} />
-          <p>{item.publishedAt}</p>
+          <p>{moment(item.publishedAt).calendar()}</p>
           <p>{item.content}</p>
           <button onClick={(event) => {
             event.preventDefault()

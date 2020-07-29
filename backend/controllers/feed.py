@@ -16,14 +16,15 @@ router = Blueprint(__name__, "feed")
 # ! then post the article that a user clicks to the flag to dbs
 
 
-@router.route("/feed/<int:id>/reaction", methods=["GET"])
-def show(id):
-    article = Article.query.get(id)
+@router.route("/feed", methods=["GET"])
+def show():
+    articles = Article.query.all()
 
-    if not article:
-        return jsonify({"message": "article not shown"}), 404
 
-    return article_schema.jsonify(article), 200
+    # if not article:
+    #     return jsonify({"message": "article not shown"}), 404
+
+    return article_schema.jsonify(articles, many=True), 200
 
 
 @router.route("/feed/article", methods=["POST"])
