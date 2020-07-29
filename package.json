@@ -40,6 +40,7 @@
     "mapbox-gl": "^1.11.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-map-gl": "^5.2.7",
     "react-router-dom": "^5.2.0",
     "react-simple-maps": "^2.1.2",
     "react-svg-worldmap": "^1.0.27"

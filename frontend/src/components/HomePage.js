@@ -43,9 +43,10 @@ const mapData = [
   },
   {
     id: '7',
-    name: 'Test 7',
+    name: 'america',
     lat: 51.5600537,
-    lon: -0.1484565
+    lon: -0.1484565,
+    flag: '🇺🇸'
   }
 ]
 
@@ -62,14 +63,14 @@ const HomePage = () => {
     // altitude: 1.5,
     // bearing: 0,
     height: '80vh',
-    width: '80vw',
-    zoom: 7,
+    width: '85vw',
+    zoom: 2,
     // maxPitch: 60,
     // maxZoom: 24,
     // minZoom: 0,
     // pitch: 0,
-    latitude: 37.2761451,
-    longitude: -104.6494972
+    latitude: 54,
+    longitude: -2
   })
 
   // ! BUTTON CONTROLS
@@ -85,68 +86,72 @@ const HomePage = () => {
   }, [])
 
   // ! Within opening tag of the MapGL
-  return <MapGL
-    mapboxApiAccessToken={'pk.eyJ1IjoiemNoYWJlayIsImEiOiJja2NhcDAwdWMxd3h6MzFsbXQzMXVobDh2In0.RIvofanub0AhjJm3Om2_HQ'}
+  return (
 
-    // pass in every property from my viewPort object; changes when viewport changes
-    {...viewPort}
-    mapStyle='mapbox://styles/zchabek/ckcbqjm986dug1kpuzi036e6q'
-    onViewportChange={(viewPort) => setViewPort(viewPort)}
-  >
+    <section id="map-container">
+      <MapGL
+        mapboxApiAccessToken={'pk.eyJ1IjoiemNoYWJlayIsImEiOiJja2NhcDAwdWMxd3h6MzFsbXQzMXVobDh2In0.RIvofanub0AhjJm3Om2_HQ'}
 
-
-    {/* Take each country , and return a marker */}
-    {countryData.map(country => {
-
-      // ! Within opening tag of the marker
-      return <Marker
-        key={country.id}
-        latitude={country.lat}
-        longitude={country.lon}
+        // pass in every property from my viewPort object; changes when viewport changes
+        {...viewPort}
+        mapStyle='mapbox://styles/zchabek/ckcbqjm986dug1kpuzi036e6q'
+        onViewportChange={(viewPort) => setViewPort(viewPort)}
       >
 
-        <button className="markerButton" onClick={() => setSelectedCountry(country)}>🌐</button>
 
-      </Marker>
-    })}
+        {/* Take each country , and return a marker */}
+        {countryData.map(country => {
+
+          // ! Within opening tag of the marker
+          return <Marker
+            key={country.id}
+            latitude={country.lat}
+            longitude={country.lon}
+          >
+
+            <button className="markerButton" onClick={() => setSelectedCountry(country)}>🌐 <div>{country.name}</div> </button>
+
+          </Marker>
+        })}
 
 
 
-    {selectedCountry ? (
+        {selectedCountry ? (
 
-      //! Within opening tag of the popup
-      <Popup
+          // ! Within opening tag of the popup
+          <Popup
 
-        closeOnClick={false}
-        latitude={selectedCountry.latitude}
-        longitude={selectedCountry.longitude}
-        onClose={() => setSelectedCountry(null)}
-      >
-        {/* <Link to={`/campgrounds/${selectedCountry._id}`}> */}
+            closeOnClick={false}
+            latitude={selectedCountry.lat}
+            longitude={selectedCountry.lon}
+            onClose={() => setSelectedCountry(null)}
+          >
+            <Link to={`/countryarticles/${selectedCountry.name}`}>
 
-        <div className="popoutCountry">
+              <div className="popoutCountry">
 
-          <h3>{selectedCountry.name}</h3>
+                <h3>{selectedCountry.name}</h3>
+                <h3>{selectedCountry.flag}</h3>
 
-          {/* <img
+                {/* <img
 
                   src={selectedCountry.media[0].url}
                   alt='campground' */}
 
-          {/* /> */}
+                {/* /> */}
 
-        </div>
+              </div>
 
-        {/* </Link> */}
+            </Link>
 
-      </Popup>
-    ) : null}
+          </Popup>
+        ) : null}
 
-  </MapGL >
+      </MapGL >
 
 
 
-  // return <div>
+      {/* // return <div>
   //   <h1>Home</h1>
 
   //   <Link to='/countryarticles/america'>
@@ -157,9 +162,10 @@ const HomePage = () => {
   //   <button>UK</button>
   //   <button>FRANCE</button>
   //   <button>SPAIN</button>
-  // </div>
+  // </div> */}
 
-
+    </section>
+  )
 }
 
 export default HomePage 
