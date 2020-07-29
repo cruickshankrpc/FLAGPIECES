@@ -10,6 +10,8 @@ const SingleArticle = (props) => {
   const [colourAngry, setAngry] = useState('pink')
   const [colourHappy, setHappy] = useState('pink')
   const [colourFunny, setFunny] = useState('pink')
+  const [colourSurprised, setSurprised] = useState('pink')
+  const [colourSad, setSad] = useState('pink')
 
   // When  the state of a reaction changes call a useEffect
 
@@ -45,13 +47,21 @@ const SingleArticle = (props) => {
   }
 
 
+  function handleSubmit4() {
+    const surprisedReaction = {
+      image: '😲',
+      name: 'suprised'
+    }
+    setReaction(surprisedReaction)
+  }
 
-
-
-
-
-
-
+  function handleSubmit5() {
+    const sadReaction = {
+      image: '😲',
+      name: 'sad'
+    }
+    setReaction(sadReaction)
+  }
 
 
   useEffect(() => {
@@ -109,26 +119,25 @@ const SingleArticle = (props) => {
         setFunny('lime')
       }} style={{ background: `${colourFunny}` }}>😂</button>
 
-
-
-
-      {/* <button onClick={(event) => {
+      <button onClick={(event) => {
         event.preventDefault()
-        handleSubmit3(reaction)
-      }}>😂</button>
+        handleSubmit3()
+        setFunny('lime')
+      }} style={{ background: `${colourFunny}` }}>😂</button>
 
       <button onClick={(event) => {
         event.preventDefault()
-        handleSubmit4(reaction)
-      }}>😲</button>
+        handleSubmit4()
+        setSurprised('lime')
+      }} style={{ background: `${colourSurprised}` }}>😲</button>
+
 
       <button onClick={(event) => {
         event.preventDefault()
-        handleSubmit5(reaction)
-      }}>😓</button> */}
+        handleSubmit5()
+        setSad('lime')
+      }} style={{ background: `${colourSad}` }}>😓</button>
 
-
-      {/* } */}
 
     </div>
   </section>
