@@ -106,7 +106,7 @@ const SingleArticle = (props) => {
         <h2>{articles.flag_image}</h2>
         <a href={articles.url} target='_blank' rel='noreferrer'> {articles.url} </a>
         <img src={articles.urlToImage} />
-        <p>{articles.publishedAt}</p>
+        <p>{moment(articles.publishedAt).calendar()}</p>
         <p>{articles.content}</p>
 
         <div className="single-article-buttons">

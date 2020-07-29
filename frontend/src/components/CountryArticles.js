@@ -56,9 +56,9 @@ const CountryArticles = (props) => {
   }, [country])
 
   return <section className="country-articles-container">
-    <div className="article-card">
+    <div className="article-container">
       {articles.map((item, index) => {
-        return <div key={index} className="card">
+        return <div key={index} className="article-card">
           <h3>{item.title}</h3>
           <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
           <img src={item.urlToImage} />
