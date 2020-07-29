@@ -78,8 +78,6 @@ const mapData = [
   },
 
 
-
-
   {
     id: '10',
     name: 'Japan',
@@ -99,7 +97,6 @@ const mapData = [
   },
 
 
-
   {
     id: '12',
     name: 'canada',
@@ -107,8 +104,6 @@ const mapData = [
     lon: -95,
     flag: '🇨🇦'
   },
-
-
 
   {
     id: '13',
@@ -118,8 +113,6 @@ const mapData = [
     flag: '🇬🇭'
   },
 
-
-
   {
     id: '14',
     name: 'india',
@@ -127,8 +120,6 @@ const mapData = [
     lon: 77,
     flag: '🇮🇳'
   },
-
-
 
   {
     id: '15',
@@ -138,8 +129,6 @@ const mapData = [
     flag: '🇦🇷 '
   },
 
-
-
   {
     id: '16',
     name: 'malaysia',
@@ -147,7 +136,6 @@ const mapData = [
     lon: 112.5,
     flag: '🇲🇾'
   },
-
 
   {
     id: '17',
@@ -173,12 +161,10 @@ const mapData = [
     flag: '🇰🇿'
   }
 
-
-
-
 ]
 
 const HomePage = () => {
+
 
   const [countryData, updateCountryData] = useState(mapData)
 
@@ -217,7 +203,11 @@ const HomePage = () => {
   return (
 
 
-    <section id="map-container">
+
+
+    <section
+
+      id="map-container">
       <MapGL
         mapboxApiAccessToken={'pk.eyJ1IjoiemNoYWJlayIsImEiOiJja2NhcDAwdWMxd3h6MzFsbXQzMXVobDh2In0.RIvofanub0AhjJm3Om2_HQ'}
 
@@ -277,21 +267,6 @@ const HomePage = () => {
         ) : null}
 
       </MapGL >
-
-
-
-      {/* // return <div>
-  //   <h1>Home</h1>
-
-  //   <Link to='/countryarticles/america'>
-  //     <button>AMERICA</button>
-  //   </Link>
-
-
-  //   <button>UK</button>
-  //   <button>FRANCE</button>
-  //   <button>SPAIN</button>
-  // </div> */}
 
     </section>
   )
