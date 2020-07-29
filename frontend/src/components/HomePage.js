@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Switch, Route, HashRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 // import CountryArticles from './CountryArticles'
 
@@ -7,9 +7,15 @@ import axios from 'axios'
 
 const HomePage = () => {
 
+
   return <div>
     <h1>Home</h1>
-    <button>AMERICA</button>
+
+    <Link to='/countryarticles/america'>
+      <button>AMERICA</button>
+    </Link>
+
+
     <button>UK</button>
     <button>FRANCE</button>
     <button>SPAIN</button>

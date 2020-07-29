@@ -10,9 +10,9 @@ const CountryArticles = (props) => {
 
   // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
-  // const [country, setCountry] = useState('america')
-  // apiKey=
-  const country = 'america'
+  // const [country, setCountry] = useState(props.match.params.country)
+
+  const country = props.match.params.country
 
   // const flags = {
   //   'america': '🇺🇸'

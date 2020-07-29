@@ -14,7 +14,7 @@ router = Blueprint(__name__, "countryarticle")
 @secure_route
 def create():
     article_response = request.get_json()
-    # article_response['reader_id'] = g.current_user.id
+    article_response['reader_id'] = g.current_user.id
 
     try:
         article = article_schema.load(article_response)
