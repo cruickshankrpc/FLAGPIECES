@@ -9,13 +9,19 @@ const SingleArticle = (props) => {
   const [articles, setArticles] = useState({})
   const [colour, setColour] = useState('pink')
 
+  // const [reaction, setReaction] = useState({
+  //   image: '',
+  //   name: ''
+  // }
+  // )
+
   function handleSubmit1() {
     const reaction = {
       image: '😠',
       name: 'angry'
     }
 
-    
+
     console.log(reaction)
 
 
@@ -51,23 +57,28 @@ const SingleArticle = (props) => {
         handleSubmit1()
         setColour('lime')
       }} style={{ background: `${colour}` }}>😠</button>
+
       {/* <button onClick={(event) => {
         event.preventDefault()
         handleSubmit2(reaction)
       }}>😊</button>
+
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit3(reaction)
       }}>😂</button>
+
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit4(reaction)
       }}>😲</button>
+
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit5(reaction)
       }}>😓</button>
  */}
+
     </div>
   </section>
 }
