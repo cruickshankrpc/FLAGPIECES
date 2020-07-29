@@ -7,33 +7,70 @@ import axios from 'axios'
 const SingleArticle = (props) => {
 
   const [articles, setArticles] = useState({})
-  const [colour, setColour] = useState('pink')
+  const [colourAngry, setAngry] = useState('pink')
+  const [colourHappy, setHappy] = useState('pink')
+  const [colourFunny, setFunny] = useState('pink')
 
-  // const [reaction, setReaction] = useState({
-  //   image: '',
-  //   name: ''
-  // }
-  // )
+  // When  the state of a reaction changes call a useEffect
+
+  const [reaction, setReaction] = useState({
+    image: '',
+    name: ''
+  }
+  )
 
   function handleSubmit1() {
-    const reaction = {
+    const angryReaction = {
       image: '😠',
       name: 'angry'
     }
+    setReaction(angryReaction)
+  }
+
+  function handleSubmit2() {
+    const happyReaction = {
+      image: '😊',
+      name: 'happy'
+    }
+    setReaction(happyReaction)
+  }
 
 
-    console.log(reaction)
+  function handleSubmit3() {
+    const funnyReaction = {
+      image: '😂',
+      name: 'funny'
+    }
+    setReaction(funnyReaction)
+  }
 
+
+
+
+
+
+
+
+
+
+
+  useEffect(() => {
 
     const token = localStorage.getItem('token')
     axios.post(`/api/singlearticle/${props.match.params.id}/reaction`, reaction
       , {
         headers: { Authorization: `Bearer ${token}` }
       }
-
     )
+    console.log(reaction)
+
     // .then((res) => props.history.push(`/singlearticle/${res.data.id}`))
-  }
+
+  }, [reaction])
+
+
+
+
 
 
   useEffect(() => {
@@ -55,15 +92,27 @@ const SingleArticle = (props) => {
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit1()
-        setColour('lime')
-      }} style={{ background: `${colour}` }}>😠</button>
+        setAngry('lime')
+      }} style={{ background: `${colourAngry}` }}>😠</button>
 
-      {/* <button onClick={(event) => {
-        event.preventDefault()
-        handleSubmit2(reaction)
-      }}>😊</button>
+
 
       <button onClick={(event) => {
+        event.preventDefault()
+        handleSubmit2()
+        setHappy('lime')
+      }} style={{ background: `${colourHappy}` }}>😊</button>
+
+      <button onClick={(event) => {
+        event.preventDefault()
+        handleSubmit3()
+        setFunny('lime')
+      }} style={{ background: `${colourFunny}` }}>😂</button>
+
+
+
+
+      {/* <button onClick={(event) => {
         event.preventDefault()
         handleSubmit3(reaction)
       }}>😂</button>
@@ -76,8 +125,10 @@ const SingleArticle = (props) => {
       <button onClick={(event) => {
         event.preventDefault()
         handleSubmit5(reaction)
-      }}>😓</button>
- */}
+      }}>😓</button> */}
+
+
+      {/* } */}
 
     </div>
   </section>
