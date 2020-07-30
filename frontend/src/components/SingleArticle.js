@@ -110,8 +110,10 @@ const SingleArticle = (props) => {
             <img src={articles.urlToImage} />
           </a>
           <small>published at: {moment(articles.publishedAt).calendar()}</small>
-
           <p>{articles.content}</p>
+          <a href={articles.url} target='_blank' rel='noreferrer'>
+            <button>READ</button>
+          </a>
         </div>
 
         <div className="single-article-buttons">
