@@ -29,20 +29,23 @@ const UserPage = () => {
           {userArticles.map((item, index) => {
             return <div key={index} className="article-card">
               <h3>{item.title}</h3>
+              <h2>{item.flag_image}</h2>
               <a href={item.url} target='_blank' rel='noreferrer'>
                 <img src={item.urlToImage} />
               </a>
               <small>published:{moment(item.publishedAt).calendar()}</small>
-              <h2>{item.flag_image}</h2>
+              
               <p>{item.content}</p>
               <a href={item.url} target='_blank' rel='noreferrer'>
                 <button>READ</button>
               </a>
-              {item.reactions.map((reaction, index) => {
-                return <div key={index}>
-                  <p>{reaction.image}</p>
-                </div>
-              })}
+              <div className='reactions'>
+                {item.reactions.map((reaction, index) => {
+                  return <div key={index}>
+                    <p>{reaction.image}</p>
+                  </div>
+                })}
+              </div>
             </div>
           })}
         </div>

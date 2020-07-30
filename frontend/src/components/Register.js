@@ -21,9 +21,9 @@ const Register = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault()
-
+    console.log(formData)
     axios.post('/api/register', formData)
-      .then(data => {
+      .then(() => {
         props.history.push('/login')
       })
   }
@@ -62,7 +62,7 @@ const Register = (props) => {
         placeholder="********"
         value={formData.passwordConfirmation}
       />
-      <div className="button-container">
+      <div className="button-container" >
         <button>Register</button>
       </div>
     </form>

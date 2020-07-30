@@ -199,13 +199,10 @@ const HomePage = () => {
   // ! Within opening tag of the MapGL
   return (
 
-
-
-
     <section
       id="map-container">
       <div className="homepage-title">
-        <h1  > Flag Pieces </h1>
+        <h1> Flag Pieces </h1>
       </div>
 
       <MapGL
@@ -244,13 +241,14 @@ const HomePage = () => {
             latitude={selectedCountry.lat}
             longitude={selectedCountry.lon}
             onClose={() => setSelectedCountry(null)}
+            className="pop-up"
           >
             <Link to={`/countryarticles/${selectedCountry.name}`}>
 
-              <div className="popoutCountry">
+              <div className="pop-out-country">
 
                 <h3>{selectedCountry.name}</h3>
-                <h3>{selectedCountry.flag}</h3>
+                <h4>{selectedCountry.flag}</h4>
 
                 {/* <img
 

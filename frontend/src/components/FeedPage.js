@@ -53,9 +53,8 @@ const FeedPage = () => {
         <select className="feed-select-bar"
           onChange={handleSort}
         >
-
-          <option value="" defaultValue >  Filter Reaction  😂 😊  😲 😓 😠  </option>
-
+          {/* 😂 😊  😲 😓 😠  */}
+          <option value="" defaultValue> FILTER: </option>
           <option value="funny" className="reviewsPageOption">😂</option>
           <option value="happy" className="reviewsPageOption">😊</option>
           <option value="surprised" className="reviewsPageOption">😲</option>
@@ -75,11 +74,13 @@ const FeedPage = () => {
             <a href={item.url} target='_blank' rel='noreferrer'>
               <button>READ</button>
             </a>
-            {item.reactions.map((reaction, index) => {
-              return <div key={index}>
-                <p>{reaction.image}</p>
-              </div>
-            })}
+            <div className='reactions'>
+              {item.reactions.map((reaction, index) => {
+                return <div key={index}>
+                  <p>{reaction.image}</p>
+                </div>
+              })}
+            </div>
           </div>
         })}
       </div>
