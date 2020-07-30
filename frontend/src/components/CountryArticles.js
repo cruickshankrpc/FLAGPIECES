@@ -7,7 +7,7 @@ import moment from 'moment'
 
 const CountryArticles = (props) => {
   // country articles page: 
-  const API_KEY = 'apiKey=59129570db024a9aaaeb6c5af565d124'
+  const API_KEY = process.env.NEWS_API_KEY
 
   // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
@@ -57,7 +57,7 @@ const CountryArticles = (props) => {
 
 
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&${API_KEY}`)
+    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=${API_KEY}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
       })
