@@ -29,46 +29,8 @@ with app.app_context():
 
     db.session.commit()
 
-    testArticle = Article(
-        id=12345,
-        title="titletest",
-        name="nametest",
-        url="urltest",
-        urlToImage="urltoImage",
-        publishedAt=123,
-        content="content",
-        reactions=[angry, happy],
-        reader_id=1,
-    )
-
-    testArticle2 = Article(
-        id=12346,
-        title="titletest",
-        name="nametest",
-        url="urltest",
-        urlToImage="urltoImage",
-        publishedAt=123,
-        content="content",
-        reactions=[angry, happy],
-        reader_id=1,
-    )
-
-    testArticle3 = Article(
-        id=12347,
-        title="titletest",
-        name="nametest",
-        url="urltest",
-        urlToImage="urltoImage",
-        publishedAt=123,
-        content="content",
-        reactions=[angry, happy],
-        reader_id=1,
-    )
-
-    db.session.add(testArticle)
-    db.session.add(testArticle2)
-    db.session.add(testArticle3)
     db.session.add(richard)
+    db.session.add(raquel)
 
     db.session.commit()
 
