@@ -32,23 +32,39 @@ import moment from 'moment'
 const FeedPage = () => {
 
   const [articles, setArticles] = useState([])
-  // const [filterReactions, setFilterReactions] = useState([])
+  // const [reaction, setReaction] = useState([])
+
+  const reaction = 'sad'
 
   const newArticles = articles.filter((article) => {
     return article.reactions.map((item, index) => {
       return item.name
     })
-      .includes('sad')
+      .includes(reaction)
   })
   console.log('NEWARTICLE:', newArticles)
 
-  // console.log('NEWARTICLES:', newArticles)
+  // function handleSort() {
+  //   console.log('THIS IS A TEST')
 
-  // const newArticles = articles.filter((article) => {
-  //   return article.reactions.includes('happy')
-  // })
+  // }
 
-  // console.log('NEWARTICLES:', newArticles)
+  // var menu = document.getElementById('change_reaction')
+  // menu.addEventListener('change', reactionChange)
+
+  // function reactionChange() {
+  //   if (menu.value === 'angry') {
+  //     alert(1)
+  //   } else if (menu.value === 'happy') {
+  //     alert(2)
+  //   } else if (menu.value === 'surprised') {
+  //     alert(3)
+  //   } else if (menu.value === 'surprised') {
+  //     alert(4)
+  //   } else if (menu.value === 'surprised') {
+  //     alert(5)
+  //   }
+  // }
 
   useEffect(() => {
     axios.get('/api/feed')
@@ -64,8 +80,13 @@ const FeedPage = () => {
     <section className="feed-container">
 
       <nav className="feed-sort">
-        {/* onChange={handleSort}  */}
-        <select className="feed-select-bar">
+
+        <select className="feed-select-bar"
+        // onChange={handleSort}
+        // id="change_reaction"
+        >
+
+          <option value="" selected disabled hidden>  Filter Reaction 😠 😊 😲 😓 😂  </option>
           <option value="angry" className="reviewsPageOption">😠</option>
           <option value="happy" className="reviewsPageOption">😊</option>
           <option value="surprised" className="reviewsPageOption">😲</option>
