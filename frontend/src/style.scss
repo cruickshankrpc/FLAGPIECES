@@ -36,6 +36,10 @@ button:hover {
     transition: background-color 0.5s ease-out;
 }
 
+.navbar {
+  font-size: 3.5vh;
+}
+
 // **** REGISTER/LOGIN START **** //
 .register-form,
 .login-form {
@@ -91,7 +95,7 @@ button:hover {
 
 // **** COUNTRY ARTICLES END **** //
 // **** SINGLE ARTICLES START **** //
-.single-article-container {
+.single-article-container, .country-articles-container, .feed-container, .user-articles-container {
     display: flex;
     justify-content: center;
     // height: 100%;
@@ -183,10 +187,10 @@ button:hover {
     flex-direction: column;
     // margin: 10rem 0;
     // !MAP
-    padding: 0rem 0rem 0rem 7rem;
+    // padding: 0rem 0rem 0rem 5rem;
     .homepage-title {
         // display: flex;
-        font-size: 2.5rem;
+        font-size: 3rem;
         display: block;
         text-align: center;
         // !TITLE top right bottom left

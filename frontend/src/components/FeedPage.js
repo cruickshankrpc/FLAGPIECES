@@ -101,10 +101,12 @@ const FeedPage = () => {
           return <div key={index} className="article-card">
             <h3>{item.title}</h3>
             <h2>{item.flag_image}</h2>
-            <a href={item.url} target='_blank' rel='noreferrer'> {articles.url} </a>
             <img src={item.urlToImage} />
             <p>{moment(item.publishedAt).calendar()}</p>
             <p>{item.content}</p>
+            <a href={item.url} target='_blank' rel='noreferrer'>
+              <button>READ</button>
+            </a>
             {item.reactions.map((reaction, index) => {
               return <div key={index}>
                 <p>{reaction.image}</p>

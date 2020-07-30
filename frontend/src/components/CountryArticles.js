@@ -15,7 +15,7 @@ const CountryArticles = (props) => {
 
   const country = props.match.params.country
 
-  console.log('CONST:',country)
+  console.log('CONST:', country)
   console.log('PROPSCOUNTRY:', props.match.params.country)
   console.log('PROPS:', props)
 
@@ -60,8 +60,10 @@ const CountryArticles = (props) => {
       {articles.map((item, index) => {
         return <div key={index} className="article-card">
           <h3>{item.title}</h3>
-          <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
-          <img src={item.urlToImage} />
+          <h2>{item.flag_image}</h2>
+          <a href={item.url} target='_blank' rel='noreferrer'>
+            <img src={item.urlToImage} />
+          </a>
           <p>{moment(item.publishedAt).calendar()}</p>
           <p>{item.content}</p>
           <button onClick={(event) => {

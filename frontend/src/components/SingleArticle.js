@@ -104,16 +104,13 @@ const SingleArticle = (props) => {
     <section className="single-article-container">
       <div className="single-article-card">
         <div className="article-card">
-          <div className="title-flag">
-            <h3>{articles.title}
-            </h3>
-            
-          </div>
+          <h3>{articles.title}</h3>
+          <h2>{articles.flag_image}</h2>
           <a href={articles.url} target='_blank' rel='noreferrer'>
             <img src={articles.urlToImage} />
           </a>
           <small>published:{moment(articles.publishedAt).calendar()}</small>
-          <h2>{articles.flag_image}</h2>
+          
           <p>{articles.content}</p>
         </div>
 

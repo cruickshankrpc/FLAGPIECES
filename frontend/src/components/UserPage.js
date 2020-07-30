@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 const UserPage = () => {
 
@@ -18,26 +19,34 @@ const UserPage = () => {
       })
   }, [])
 
-  return <section className="country-articles-container">
-    <div className="article-card">
+  return <>
+    <section className="user-page">
+
       <h1>YOUR READ ARTICLES</h1>
-      {userArticles.map((item, index) => {
-        return <div key={index} className="card">
-          <h3>{item.title}</h3>
-          <p>{item.flag_image}</p>
-          <a href={item.url} target='_blank' rel='noreferrer'> {item.url} </a>
-          <img src={item.urlToImage} />
-          <p>{item.publishedAt}</p>
-          <p>{item.content}</p>
-          {item.reactions.map((reaction, index) => {
-            return <div key={index}>
-              <p>{reaction.image}</p>
+
+      <section className="user-articles-container">
+        <div>
+          {userArticles.map((item, index) => {
+            return <div key={index} className="article-card">
+              <h3>{item.title}</h3>
+             
+              <a href={item.url} target='_blank' rel='noreferrer'>
+                <img src={item.urlToImage} />
+              </a>
+              <small>published:{moment(item.publishedAt).calendar()}</small>
+              <h2>{item.flag_image}</h2>
+              <p>{item.content}</p>
+              {item.reactions.map((reaction, index) => {
+                return <div key={index}>
+                  <p>{reaction.image}</p>
+                </div>
+              })}
             </div>
           })}
         </div>
-      })}
-    </div>
-  </section>
+      </section>
+    </section>
+  </>
 
 
 
