@@ -84,6 +84,7 @@ const FeedPage = () => {
         <select className="feed-select-bar"
         // onChange={handleSort}
         // id="change_reaction"
+
         >
 
           <option value="" selected disabled hidden>  Filter Reaction 😠 😊 😲 😓 😂  </option>
