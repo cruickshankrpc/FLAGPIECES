@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from environment.config import db_URI
+from environment.config import db_uri
 from flask_bcrypt import Bcrypt
 import os
 
@@ -12,7 +12,7 @@ import os
 
 app = Flask(__name__, static_folder="dist")
 
-app.config["SQLALCHEMY_DATABASE_URI"] = db_URI
+app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
