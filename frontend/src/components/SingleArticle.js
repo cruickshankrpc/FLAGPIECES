@@ -13,11 +13,11 @@ const SingleArticle = (props) => {
   // for comments:
   const [comment, setComment] = useState('')
 
-  const [colourAngry, setAngry] = useState('pink')
-  const [colourHappy, setHappy] = useState('pink')
-  const [colourFunny, setFunny] = useState('pink')
-  const [colourSurprised, setSurprised] = useState('pink')
-  const [colourSad, setSad] = useState('pink')
+  const [colourAngry, setAngry] = useState('lightgrey')
+  const [colourHappy, setHappy] = useState('lightgrey')
+  const [colourFunny, setFunny] = useState('lightgrey')
+  const [colourSurprised, setSurprised] = useState('lightgrey')
+  const [colourSad, setSad] = useState('lightgrey')
 
   // for comments:
   function handleComment() {
@@ -96,7 +96,7 @@ const SingleArticle = (props) => {
     axios.get(`/api/singlearticle/${id}`)
       .then(axiosResp => {
         setArticles(axiosResp.data)
-        // console.log('AXIOSRESP.DATA:', axiosResp.data)
+        console.log('AXIOSRESP.DATA:', axiosResp.data)
       })
   }, [])
 
@@ -105,15 +105,15 @@ const SingleArticle = (props) => {
       <div className="single-article-card">
         <div className="article-card">
           <div className="title-flag">
-            <a href={articles.url} target='_blank' rel='noreferrer'>
-              <h3>{articles.title}
-              </h3>
-            </a>
-            <h2>{articles.flag_image}</h2>
+            <h3>{articles.title}
+            </h3>
+            
           </div>
-
-          <img src={articles.urlToImage} />
-          <p>published:{moment(articles.publishedAt).calendar()}</p>
+          <a href={articles.url} target='_blank' rel='noreferrer'>
+            <img src={articles.urlToImage} />
+          </a>
+          <small>published:{moment(articles.publishedAt).calendar()}</small>
+          <h2>{articles.flag_image}</h2>
           <p>{articles.content}</p>
         </div>
 
@@ -121,53 +121,54 @@ const SingleArticle = (props) => {
           <button onClick={(event) => {
             event.preventDefault()
             handleSubmit1()
-            setAngry('lime')
+            setAngry('pink')
           }} style={{ background: `${colourAngry}` }}><big>😠</big></button>
 
           <button onClick={(event) => {
             event.preventDefault()
             handleSubmit2()
-            setHappy('lime')
+            setHappy('pink')
           }} style={{ background: `${colourHappy}` }}> <big>😊</big></button>
 
           <button onClick={(event) => {
             event.preventDefault()
             handleSubmit3()
-            setFunny('lime')
+            setFunny('pink')
           }} style={{ background: `${colourFunny}` }}><big>😂</big></button>
 
           <button onClick={(event) => {
             event.preventDefault()
             handleSubmit4()
-            setSurprised('lime')
+            setSurprised('pink')
           }} style={{ background: `${colourSurprised}` }}><big>😲</big></button>
 
           <button onClick={(event) => {
             event.preventDefault()
             handleSubmit5()
-            setSad('lime')
+            setSad('pink')
           }} style={{ background: `${colourSad}` }}><big>😓</big></button>
         </div>
 
-        <div className="comments">
-          <h2>COMMENTS:</h2>
+        <h2>COMMENTS:</h2>
+        <div className="comment-box">
           {articles.comments && articles.comments.map(comment => {
             return <div className="media-content" key={comment.id}>
               <div className="content">
                 <p>{comment.content}</p>
-                <p>{moment(comment.created_at).calendar()}</p>
+                <small>{moment(comment.created_at).calendar()}</small>
               </div>
             </div>
           })}
-
-
         </div>
+
+
         <div className="media-content">
           <div className="field">
             <p className="control">
               <textarea
                 className="textarea"
                 placeholder="Add a comment..."
+                type="text"
                 onChange={(event) => setComment(event.target.value)}
                 value={comment}
               >
@@ -175,8 +176,7 @@ const SingleArticle = (props) => {
               </textarea>
             </p>
           </div>
-        
-          <button onClick={handleComment} className="button is-info">Submit</button>
+          <button onClick={handleComment}>Submit</button>
         </div>
 
 
