@@ -159,9 +159,8 @@ const SingleArticle = (props) => {
               </div>
             </div>
           })}
-
-
         </div>
+        
         <div className="media-content">
           <div className="field">
             <p className="control">
@@ -175,8 +174,7 @@ const SingleArticle = (props) => {
               </textarea>
             </p>
           </div>
-        
-          <button onClick={handleComment} className="button is-info">Submit</button>
+          <button onClick={handleComment}>Submit</button>
         </div>
 
 
