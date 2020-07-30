@@ -16,11 +16,11 @@ const FeedPage = () => {
     })
       .includes(reaction)
   })
-  console.log('NEWARTICLE:', newArticles)
+  // console.log('NEWARTICLE:', newArticles)
 
 
   function handleSort(event) {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     if (event.target.value === 'angry') {
       setReaction('angry')
     } if (event.target.value === 'happy') {
@@ -40,7 +40,7 @@ const FeedPage = () => {
       .then(axiosResp => {
         setArticles(axiosResp.data)
         // setFilterReactions()
-        console.log('RESPONSE:', axiosResp.data)
+        // console.log('RESPONSE:', axiosResp.data)
       })
   }, [])
 
@@ -54,8 +54,7 @@ const FeedPage = () => {
           onChange={handleSort}
         >
 
-          <option value="" selected disabled hidden>  Filter Reaction 😠 😊 😲 😓 😂  </option>
-          <option value="happy" className="reviewsPageOption"> </option>
+          <option value="" defaultValue >  Filter Reaction  😂 😊  😲 😓 😠  </option>
 
           <option value="funny" className="reviewsPageOption">😂</option>
           <option value="happy" className="reviewsPageOption">😊</option>

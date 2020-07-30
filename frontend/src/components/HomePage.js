@@ -56,9 +56,6 @@ const mapData = [
   },
 
 
-
-
-
   {
     id: '8',
     name: 'mexico',
@@ -80,7 +77,7 @@ const mapData = [
 
   {
     id: '10',
-    name: 'Japan',
+    name: 'japan',
     lat: 36,
     lon: 138,
     flag: '🇯🇵'
@@ -147,14 +144,14 @@ const mapData = [
 
   {
     id: '18',
-    name: 'New Zealand',
+    name: 'New zealand',
     lat: -42,
     lon: 174,
     flag: '🇳🇿'
   },
 
   {
-    id: '18',
+    id: '19',
     name: 'kazakhsta',
     lat: 48,
     lon: 64,

@@ -15,29 +15,37 @@ const CountryArticles = (props) => {
 
   const country = props.match.params.country
 
-  console.log('CONST:',country)
-  console.log('PROPSCOUNTRY:', props.match.params.country)
-  console.log('PROPS:', props)
+  // console.log('PROPS:', props.match.params.country)
 
-  // const flags = {
-  //   'america': '🇺🇸'
-  console.log('PROPS:', props.match.params.country)
-  // United Arab Emirates
-  //  Argentina
-  // Austria
-  // }
-
-  //  inside onclick 
+  //  inside onclick, sets the flag_image value  countryEmojiMap[country]
   function handleSubmit(item) {
     const countryEmojiMap = {
       america: '🇺🇸',
-      uk: '🇬🇧'
+      uk: '🇬🇧',
+      russia: '🇷🇺',
+      egypt: '🇪🇬',
+      china: '🇨🇳',
+      'united arab emirates': '🇦🇪',
+      brazil: '🇧🇷',
+      'united kingdom': '🇬🇧',
+      mexico: '🇲🇽',
+      ukraine: '🇺🇦',
+      japan: '🇯🇵',
+      nigeria: '🇳🇬',
+      canada: '🇨🇦',
+      ghana: '🇬🇭',
+      india: '🇮🇳',
+      argentina: '🇦🇷',
+      malyaysia: '🇲🇾',
+      sweden: '🇸🇪',
+      'New zealand': '🇳🇿',
+      kazakhsta: '🇰🇿'
     }
     const newItem = { ...item, flag_image: countryEmojiMap[country] }
     delete newItem['author']
     delete newItem['description']
     delete newItem['source']
-    console.log(newItem)
+    // console.log(newItem)
     const token = localStorage.getItem('token')
     axios.post('/api/countryarticles/article', newItem
       , {
@@ -72,9 +80,6 @@ const CountryArticles = (props) => {
       })}
     </div>
   </section>
-
-
-
 
   // button for each article; post
 
