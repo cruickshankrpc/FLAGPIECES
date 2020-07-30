@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from environment.config import db_uri
+from config.environment import db_uri
 from flask_bcrypt import Bcrypt
 import os
 
