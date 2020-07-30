@@ -67,85 +67,76 @@ button:hover {
 }
 
 // **** REGISTER/LOGIN END **** //
-// **** COUNTRY ARTICLES START **** //
-// **** COUNTRY ARTICLES START **** //
-.country-articles-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+
+// **** SINGLE ARTICLES START **** //
+
+// ! ARTICLES CONTAINER 
+.single-article-container, .country-articles-container, .feed-container, .user-articles-container, .article-container  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5vw;
+  h3 {
+      font-family: 'Bebas Neue', cursive;
+      font-family: 'Rubik Mono One', sans-serif;
+      font-family: 'Patrick Hand SC', cursive;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 1vh;
+      font-size: 4vh;
+  }
+  h2 {
+      font-size: 1.5rem;
+  }
+  button {
+      // font-family: 'Inconsolata', monospace;
+      font-family: 'Patrick Hand SC', cursive;
+  }
+  small {
+      color: grey;
+      float: right;
+  }
+  textarea {
+      font-family: 'Patrick Hand SC', cursive;
+  }
+  p {
+      font-size: 0.8rem;
+      // float: right;
+  }
 }
+
 
 .article-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    border: solid 1px lightgrey;
-    border-radius: 5px;
-    box-shadow: 10px 17px 10px -10px lightgrey;
-}
-
-.comments {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-// **** COUNTRY ARTICLES END **** //
-// **** SINGLE ARTICLES START **** //
-.single-article-container, .country-articles-container, .feed-container, .user-articles-container {
-    display: flex;
-    justify-content: center;
-    // height: 100%;
-    // width: 100%;
-    // position: absolute;
-    margin: 10vw;
-    h3 {
-        font-family: 'Bebas Neue', cursive;
-        font-family: 'Rubik Mono One', sans-serif;
-        font-family: 'Patrick Hand SC', cursive;
-        text-transform: uppercase;
-        text-align: center;
-        margin-bottom: 0.6vh;
-        font-size: 4vh;
-    }
-    h2 {
-        font-size: 1.5rem;
-    }
-    button {
-        // font-family: 'Inconsolata', monospace;
-        font-family: 'Patrick Hand SC', cursive;
-    }
-    small {
-        color: grey;
-    }
-    textarea {
-        font-family: 'Patrick Hand SC', cursive;
-    }
-    p {
-        font-size: 0.8rem;
-        float: right;
-    }
-}
-
-.single-article-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80vw;
-    margin: 1vh;
-    // padding: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 80vw;
+  margin: 1vh;
+  border: solid 1px lightgrey;
+  border-radius: 5px;
+  box-shadow: 10px 17px 10px -10px lightgrey;
     img {
         border-radius: 5px;
+        margin-bottom: 2vh;;
+    }
+    h3 {
+      margin-bottom: 2vh;
+    }
+    small {
+      margin-bottom: 2vh;
     }
 }
 
 .single-article-buttons {
     margin-top: 2vh;
     margin-bottom: 2vh;
+    button {
+      margin-left: 1vh;
+    }
 }
 
 .title-flag {
@@ -158,24 +149,41 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1vh;
+    // margin-bottom: 1vh;
     button {
         width: 100px;
     }
 }
 
-.content {
+.comment-box {
+  margin-bottom: 2vh;
+}
+
+.comment-content {
     display: flex;
     flex-direction: column;
-    width: 150px;
+    width: 200px;
     text-align: center;
     border: solid lightgrey 1px;
     border-radius: 5px;
     margin: 1.5vh;
-    padding: 0.5vh;
+    padding: 0.8vh;
     p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
+}
+
+@media (min-width: 700px) {
+
+  .article-card {
+    padding: 7vh;
+  }
+
+  .comment-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 // **** SINGLE ARTICLES END **** //

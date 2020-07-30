@@ -64,7 +64,7 @@ const CountryArticles = (props) => {
           <a href={item.url} target='_blank' rel='noreferrer'>
             <img src={item.urlToImage} />
           </a>
-          <p>{moment(item.publishedAt).calendar()}</p>
+          <small>published at: {moment(item.publishedAt).calendar()}</small>
           <p>{item.content}</p>
           <button onClick={(event) => {
             event.preventDefault()
