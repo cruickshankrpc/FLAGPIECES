@@ -15,6 +15,7 @@ body {
     display: flex;
     justify-content: center;
     // padding: 8rem;
+    // background: lightblue;
 }
 
 input[type="text"]{
@@ -56,7 +57,7 @@ button:hover {
 
 .register-form, .login-form {
     button {
-      font-family: 'Inconsolata', monospace;
+      // font-family: 'Inconsolata', monospace;
       padding: 1.5vh;
       border-radius: 0.5vh;
       margin-top: 1vh;
@@ -84,6 +85,8 @@ button:hover {
     padding: 2rem;
     border: solid 1px lightgrey;
     border-radius: 5px;
+    box-shadow: 10px 17px 10px -10px lightgrey;
+    
 }
 
 .comments {
@@ -105,16 +108,26 @@ button:hover {
   // position: absolute;
   margin: 10vw;
     h3 {
-      // font-family: 'Bebas Neue', cursive;
+      font-family: 'Bebas Neue', cursive;
       font-family: 'Rubik Mono One', sans-serif;
-      // font-family: 'Patrick Hand SC', cursive;
+      font-family: 'Patrick Hand SC', cursive;
       text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0.6vh;
+      font-size: 4vh;
     }
     h2 {
         font-size: 1.5rem;
     }
     button {
-      font-family: 'Inconsolata', monospace;
+      // font-family: 'Inconsolata', monospace;
+      font-family: 'Patrick Hand SC', cursive;
+    }
+    small {
+      color: grey;
+    }
+    textarea {
+      font-family: 'Patrick Hand SC', cursive;
     }
     p {
       font-size: 0.8rem;
@@ -127,27 +140,49 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 80vw;
+    margin: 1vh;
+    
+    // padding: 1vh;
+    img {
+      border-radius: 5px;
+    }
+}
+
+.single-article-buttons {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  
 }
 
 .title-flag {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
 
 .media-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  input[type="text"] {
-    font-family: 'Inconsolata', monospace !important
-  }
+  margin-bottom: 1vh;
   button {
-    width: 10vw;
+    width: 100px;
   }
+}
 
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  text-align: center;
+  border: solid lightgrey 1px;
+  border-radius: 5px;
+  margin: 1.5vh;
+  padding: 0.5vh;
+    p {
+      font-size: 2rem;
+    }
 }
 
 
