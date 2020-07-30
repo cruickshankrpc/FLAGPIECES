@@ -34,7 +34,7 @@ const UserPage = () => {
                 <img src={item.urlToImage} />
               </a>
               <small>published:{moment(item.publishedAt).calendar()}</small>
-              
+
               <p>{item.content}</p>
               <a href={item.url} target='_blank' rel='noreferrer'>
                 <button>READ</button>
@@ -46,8 +46,22 @@ const UserPage = () => {
                   </div>
                 })}
               </div>
+              <div className="comments-container">
+                <h2>COMMENTS:</h2>
+                <div className="comment-box">
+                  {item.comments.map(comment => {
+                    return <div className="media-content" key={comment.id}>
+                      <div className="comment-content">
+                        <p>{comment.content}</p>
+                        <small>{moment(comment.content.created_at).calendar()}</small>
+                      </div>
+                    </div>
+                  })}
+                </div>
+              </div>
             </div>
           })}
+
         </div>
       </section>
     </section>
@@ -59,3 +73,11 @@ const UserPage = () => {
 }
 
 export default UserPage 
+
+{/* <div className="comment-box">
+{userArticles && userArticles.map(article => {
+  return <div className="media-content" key={article.id}>
+    <div className="article-content">
+      <p>{article.comments.content}</p>
+      <small>{moment(article.comments.created_at).calendar()}</small>
+    </div> */}
