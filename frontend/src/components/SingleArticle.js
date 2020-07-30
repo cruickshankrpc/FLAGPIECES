@@ -102,18 +102,15 @@ const SingleArticle = (props) => {
 
   return <>
     <section className="single-article-container">
-      <div className="single-article-card">
+      <div className="article-container">
         <div className="article-card">
-          <div className="title-flag">
-            <h3>{articles.title}
-            </h3>
-            
-          </div>
+          <h3>{articles.title}</h3>
+          <h2>{articles.flag_image}</h2>
           <a href={articles.url} target='_blank' rel='noreferrer'>
             <img src={articles.urlToImage} />
           </a>
-          <small>published:{moment(articles.publishedAt).calendar()}</small>
-          <h2>{articles.flag_image}</h2>
+          <small>published at: {moment(articles.publishedAt).calendar()}</small>
+
           <p>{articles.content}</p>
         </div>
 
@@ -149,18 +146,19 @@ const SingleArticle = (props) => {
           }} style={{ background: `${colourSad}` }}><big>😓</big></button>
         </div>
 
-        <h2>COMMENTS:</h2>
-        <div className="comment-box">
-          {articles.comments && articles.comments.map(comment => {
-            return <div className="media-content" key={comment.id}>
-              <div className="content">
-                <p>{comment.content}</p>
-                <small>{moment(comment.created_at).calendar()}</small>
+        <div className="comments-container">
+          <h2>COMMENTS:</h2>
+          <div className="comment-box">
+            {articles.comments && articles.comments.map(comment => {
+              return <div className="media-content" key={comment.id}>
+                <div className="comment-content">
+                  <p>{comment.content}</p>
+                  <small>{moment(comment.created_at).calendar()}</small>
+                </div>
               </div>
-            </div>
-          })}
+            })}
+          </div>
         </div>
-
 
         <div className="media-content">
           <div className="field">
@@ -178,8 +176,6 @@ const SingleArticle = (props) => {
           </div>
           <button onClick={handleComment}>Submit</button>
         </div>
-
-
       </div>
     </section>
   </>
