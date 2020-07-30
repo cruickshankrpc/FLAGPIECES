@@ -1,5 +1,4 @@
 // font-family: 'Rubik Mono One', sans-serif;
-
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +15,6 @@ body {
     // justify-content: center;
     // padding: 8rem;
 }
-
 
 // **** REGISTER/LOGIN START **** //
 .register-form,
@@ -40,9 +38,6 @@ button {
 
 // **** REGISTER/LOGIN END **** //
 // **** COUNTRY ARTICLES START **** //
-
-
-
 // **** COUNTRY ARTICLES START **** //
 .country-articles-container {
     display: flex;
@@ -62,38 +57,35 @@ button {
 }
 
 .comments {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-
 // **** COUNTRY ARTICLES END **** //
-
-
 // **** SINGLE ARTICLES START **** //
 .single-article-container {
-  display:flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  margin: 10vw;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 10vw;
     h3 {
-      // font-family: 'Bebas Neue', cursive;
-      font-family: 'Rubik Mono One', sans-serif;
-      // font-family: 'Patrick Hand SC', cursive;
-      text-transform: uppercase;
+        // font-family: 'Bebas Neue', cursive;
+        font-family: 'Rubik Mono One', sans-serif;
+        // font-family: 'Patrick Hand SC', cursive;
+        text-transform: uppercase;
     }
     h2 {
         font-size: 1.5rem;
     }
     button {
-      font-family: 'Inconsolata', monospace;
+        font-family: 'Inconsolata', monospace;
     }
     p {
-      font-size: 0.8rem;
-      float: right;
+        font-size: 0.8rem;
+        float: right;
     }
 }
 
@@ -106,10 +98,37 @@ button {
 }
 
 .title-flag {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-
 // **** SINGLE ARTICLES END **** //
+// // Title page
+// .homepage-title {
+//     h1 {
+//         font-size: 5rem;
+//     }
+// }
+#map-container {
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // margin: 10rem 0;
+    // !MAP
+    padding: 0rem 0rem 0rem 7rem;
+    .homepage-title {
+        // display: flex;
+        font-size: 2.5rem;
+        display: block;
+        text-align: center;
+        // !TITLE top right bottom left
+        padding: 0 7rem 1.1rem 0;
+        .mapboxgl-maps {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

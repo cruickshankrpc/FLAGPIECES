@@ -206,8 +206,11 @@ const HomePage = () => {
 
 
     <section
-
       id="map-container">
+      <div className="homepage-title">
+        <h1  > Flag Pieces </h1>
+      </div>
+
       <MapGL
         mapboxApiAccessToken={'pk.eyJ1IjoiemNoYWJlayIsImEiOiJja2NhcDAwdWMxd3h6MzFsbXQzMXVobDh2In0.RIvofanub0AhjJm3Om2_HQ'}
 
