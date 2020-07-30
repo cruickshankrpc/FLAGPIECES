@@ -4,6 +4,9 @@ import 'bulma'
 
 const NavBar = () => {
 
+  const [isActive, setisActive] = React.useState(false)
+
+
   return <>
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
@@ -13,14 +16,25 @@ const NavBar = () => {
           </a>
         </Link>
 
-        <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a
+          onClick={() => {
+            setisActive(!isActive)
+          }}
+
+          role="button"
+          className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+          aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+
+
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
+
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
+      <div id="navbarBasicExample" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
         <div className="navbar-start">
 
           <Link to="/">
@@ -30,12 +44,12 @@ const NavBar = () => {
           </Link>
           <Link to="/userpage">
             <a className="navbar-item">
-            Profile
+              Profile
             </a>
           </Link>
           <Link to="/feed">
             <a className="navbar-item">
-            Feed
+              Feed
             </a>
           </Link>
         </div>
@@ -50,7 +64,7 @@ const NavBar = () => {
               </Link>
               <Link to="/login">
                 <a className="button is-light">
-                Log in
+                  Log in
                 </a>
               </Link>
             </div>
