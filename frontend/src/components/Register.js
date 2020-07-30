@@ -7,7 +7,7 @@ const Register = (props) => {
     username: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    password_confirmation: ''
   })
 
   function handleChange(event) {
@@ -29,43 +29,45 @@ const Register = (props) => {
   }
 
   return <>
-    <form className="register-form" onSubmit={handleSubmit}>
-      <label>Username</label>
-      <input
-        name="username"
-        onChange={handleChange}
-        type="text"
-        placeholder="username"
-        value={formData.username}
-      />
-      <label>Email</label>
-      <input
-        name="email"
-        onChange={handleChange}
-        type="text"
-        placeholder="you@you.com"
-        value={formData.email}
-      />
-      <label>Password</label>
-      <input
-        name="password"
-        onChange={handleChange}
-        type="password"
-        placeholder="********"
-        value={formData.password}
-      />
-      <label>Confirm Password</label>
-      <input
-        name="passwordConfirmation"
-        onChange={handleChange}
-        type="password"
-        placeholder="********"
-        value={formData.passwordConfirmation}
-      />
-      <div className="button-container" >
-        <button>Register</button>
-      </div>
-    </form>
+    <section className="register-container">
+      <form className="register-form" onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          name="username"
+          onChange={handleChange}
+          type="text"
+          placeholder="username"
+          value={formData.username}
+        />
+        <label>Email</label>
+        <input
+          name="email"
+          onChange={handleChange}
+          type="text"
+          placeholder="you@you.com"
+          value={formData.email}
+        />
+        <label>Password</label>
+        <input
+          name="password"
+          onChange={handleChange}
+          type="password"
+          placeholder="********"
+          value={formData.password}
+        />
+        <label>Confirm Password</label>
+        <input
+          name="password_confirmation"
+          onChange={handleChange}
+          type="password"
+          placeholder="********"
+          value={formData.password_confirmation}
+        />
+        <div className="button-container" >
+          <button>Register</button>
+        </div>
+      </form>
+    </section>
   </>
 
 }

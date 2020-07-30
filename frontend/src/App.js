@@ -13,7 +13,7 @@ import CountryArticles from './components/CountryArticles'
 import SingleArticle from './components/SingleArticle'
 import UserPage from './components/UserPage'
 import FeedPage from './components/FeedPage'
-
+import Footer from './components/Footer'
 
 const App = () => {
 
@@ -28,6 +28,7 @@ const App = () => {
       <Route path="/userpage" component={UserPage} />
       <Route path="/feed" component={FeedPage} />
     </Switch>
+    <Footer />
   </HashRouter>
 
 

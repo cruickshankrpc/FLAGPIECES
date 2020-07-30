@@ -13,6 +13,7 @@ body {
     // position: absolute;
     margin: 0;
     display: flex;
+    // flex-direction: column;
     justify-content: center;
     // padding: 8rem;
     // background: lightblue;
@@ -39,13 +40,14 @@ button:hover {
 
 .navbar {
     padding: 2vh;
-    // display: flex;
     font-size: 3.5vh;
     width: 100%;
     a {
+        background-color: white;
         text-decoration: none;
     }
     a:hover {
+        background-color: white;
         cursor: pointer;
         opacity: 0.5;
         transition: opacity 0.5s ease-out;
@@ -58,6 +60,7 @@ button:hover {
     display: block;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     // !MAP
     padding: 0rem 0rem 5rem 0rem;
@@ -100,6 +103,11 @@ button:hover {
 
 // **** HOMEPAGE END **** //
 // **** REGISTER/LOGIN START **** //
+.login-container,
+.register-container {
+    height: 70vh;
+}
+
 .register-form,
 .login-form {
     display: flex;
@@ -139,6 +147,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     margin-top: 0.5vw;
+    // height: 100vh;
     h3 {
         font-family: 'Bebas Neue', cursive;
         font-family: 'Rubik Mono One', sans-serif;
@@ -300,3 +309,23 @@ button:hover {
 }
 
 // **** FEED END **** //
+footer {
+    // margin: 2rem;
+    // width: 100%;
+    // padding-top: 2rem;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // margin-top: auto;
+    // clear: both;
+    height: 70px;
+    // margin-top: 300px;
+    width: 100vw;
+    font-size: 0.8rem;
+}
+
+.feed-container {
+    .feed-sort {
+        margin-bottom: 800px;
+    }
+}

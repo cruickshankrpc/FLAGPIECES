@@ -29,29 +29,31 @@ const Login = (props) => {
       .catch(err => console.log(err.response))
   }
 
-  return <form className="login-form" onSubmit={handleSubmit}>
-    <label className="email-label">Email</label>
-    <input
-      name="email"
-      className="form-input"
-      onChange={handleChange}
-      type="text"
-      placeholder="you@you.com"
-      value={formData.email}
-    />
-    <label className="password-label">Password</label>
-    <input
-      name="password"
-      className="form-input"
-      onChange={handleChange}
-      type="password"
-      placeholder="********"
-      value={formData.password}
-    />
-    <div className="button-container">
-      <button className="login-button">Login</button>
-    </div>
-  </form>
+  return <section className="login-container">
+    <form className="login-form" onSubmit={handleSubmit}>
+      <label className="email-label">Email</label>
+      <input
+        name="email"
+        className="form-input"
+        onChange={handleChange}
+        type="text"
+        placeholder="you@you.com"
+        value={formData.email}
+      />
+      <label className="password-label">Password</label>
+      <input
+        name="password"
+        className="form-input"
+        onChange={handleChange}
+        type="password"
+        placeholder="********"
+        value={formData.password}
+      />
+      <div className="button-container">
+        <button className="login-button">Login</button>
+      </div>
+    </form>
+  </section>
 
 
 }
