@@ -55,25 +55,27 @@ const CountryArticles = (props) => {
       })
   }, [country])
 
-  return <section className="country-articles-container">
-    <div className="article-container">
-      {articles.map((item, index) => {
-        return <div key={index} className="article-card">
-          <h3>{item.title}</h3>
-          <h2>{item.flag_image}</h2>
-          <a href={item.url} target='_blank' rel='noreferrer'>
-            <img src={item.urlToImage} />
-          </a>
-          <small>published at: {moment(item.publishedAt).calendar()}</small>
-          <p>{item.content}</p>
-          <button onClick={(event) => {
-            event.preventDefault()
-            handleSubmit(item)
-          }}>READ</button>
-        </div>
-      })}
-    </div>
-  </section>
+  return <>
+    <section className="country-articles-container">
+      <div className="article-container">
+        {articles.map((item, index) => {
+          return <div key={index} className="article-card">
+            <h3>{item.title}</h3>
+            <h2>{item.flag_image}</h2>
+            <a href={item.url} target='_blank' rel='noreferrer'>
+              <img src={item.urlToImage} />
+            </a>
+            <small>published at: {moment(item.publishedAt).calendar()}</small>
+            <p>{item.content}</p>
+            <button onClick={(event) => {
+              event.preventDefault()
+              handleSubmit(item)
+            }}>READ</button>
+          </div>
+        })}
+      </div>
+    </section>
+  </>
 
 
 

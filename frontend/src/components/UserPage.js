@@ -22,20 +22,22 @@ const UserPage = () => {
   return <>
     <section className="user-page">
 
-      <h1>YOUR READ ARTICLES</h1>
+      <h1>YOUR READ ARTICLES:</h1>
 
       <section className="user-articles-container">
         <div>
           {userArticles.map((item, index) => {
             return <div key={index} className="article-card">
               <h3>{item.title}</h3>
-             
               <a href={item.url} target='_blank' rel='noreferrer'>
                 <img src={item.urlToImage} />
               </a>
               <small>published:{moment(item.publishedAt).calendar()}</small>
               <h2>{item.flag_image}</h2>
               <p>{item.content}</p>
+              <a href={item.url} target='_blank' rel='noreferrer'>
+                <button>READ</button>
+              </a>
               {item.reactions.map((reaction, index) => {
                 return <div key={index}>
                   <p>{reaction.image}</p>

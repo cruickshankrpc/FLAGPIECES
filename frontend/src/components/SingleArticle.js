@@ -146,17 +146,20 @@ const SingleArticle = (props) => {
           }} style={{ background: `${colourSad}` }}><big>😓</big></button>
         </div>
 
-        <h2>COMMENTS:</h2>
-        <div className="comment-box">
-          {articles.comments && articles.comments.map(comment => {
-            return <div className="media-content" key={comment.id}>
-              <div className="comment-content">
-                <p>{comment.content}</p>
-                <small>{moment(comment.created_at).calendar()}</small>
+        <div className="comments-container">
+          <h2>COMMENTS:</h2>
+          <div className="comment-box">
+            {articles.comments && articles.comments.map(comment => {
+              return <div className="media-content" key={comment.id}>
+                <div className="comment-content">
+                  <p>{comment.content}</p>
+                  <small>{moment(comment.created_at).calendar()}</small>
+                </div>
               </div>
-            </div>
-          })}
+            })}
+          </div>
         </div>
+
         <div className="media-content">
           <div className="field">
             <p className="control">

@@ -59,10 +59,11 @@ button:hover {
 .register-form,
 .login-form {
     button {
-        // font-family: 'Inconsolata', monospace;
-        padding: 1.5vh;
-        border-radius: 0.5vh;
-        margin-top: 1vh;
+      font-family: 'Patrick Hand SC', cursive;
+      font-size: 2vh;
+      padding: 1.5vh;
+      border-radius: 0.5vh;
+      margin-top: 1vh;
     }
 }
 
@@ -89,6 +90,7 @@ button:hover {
   }
   h2 {
       font-size: 1.5rem;
+      text-align: center;
   }
   button {
       // font-family: 'Inconsolata', monospace;
@@ -187,6 +189,23 @@ button:hover {
 }
 
 // **** SINGLE ARTICLES END **** //
+
+// **** USERPAGE **** //
+
+.user-page {
+  // display: flex;
+  // flex-direction: column;
+  h1 {
+    font-size: 5vh;
+    text-align: center;
+  }
+}
+// **** USERPAGE **** //
+
+
+
+
+
 #map-container {
     width: 100%;
     display: block;
