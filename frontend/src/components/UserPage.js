@@ -47,10 +47,11 @@ const UserPage = () => {
                 })}
               </div>
               <div className="comments-container">
-                <h2>COMMENTS:</h2>
+                
                 <div className="comment-box">
                   {item.comments.map(comment => {
                     return <div className="media-content" key={comment.id}>
+                      <h2>COMMENTS:</h2>
                       <div className="comment-content">
                         <p>{comment.content}</p>
                         <small>{moment(comment.content.created_at).calendar()}</small>
