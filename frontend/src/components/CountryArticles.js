@@ -56,8 +56,13 @@ const CountryArticles = (props) => {
   }
 
 
+  // api/news/country
+
+
+
+
   useEffect(() => {
-    axios.get(`https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=${API_KEY}`)
+    axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=${API_KEY}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
       })

@@ -21,8 +21,17 @@ ma = Marshmallow(app)
 
 bcrypt = Bcrypt(app)
 
-from controllers import country_articles, feed, search, single_article, user_page, users
+from controllers import (
+    proxy,
+    country_articles,
+    feed,
+    search,
+    single_article,
+    user_page,
+    users,
+)
 
+app.register_blueprint(proxy.router, url_prefix="/api")
 app.register_blueprint(country_articles.router, url_prefix="/api")
 app.register_blueprint(feed.router, url_prefix="/api")
 app.register_blueprint(search.router, url_prefix="/api")
