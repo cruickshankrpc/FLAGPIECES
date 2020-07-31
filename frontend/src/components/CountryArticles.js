@@ -7,7 +7,7 @@ import moment from 'moment'
 
 const CountryArticles = (props) => {
   // country articles page: 
-  const API_KEY = process.env.NEWS_API_KEY
+  // const API_KEY = process.env.NEWS_API_KEY
 
   // process.env.NEWS_KEY
   const [articles, setArticles] = useState([])
@@ -62,9 +62,14 @@ const CountryArticles = (props) => {
 
 
   useEffect(() => {
-    axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=${country}&language=en&apiKey=${API_KEY}`)
+
+
+    axios.get(`/api/news/${country}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
+
+
+
       })
   }, [country])
 

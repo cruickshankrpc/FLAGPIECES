@@ -3,24 +3,31 @@ from models.article import Article, ArticleSchema
 from app import db
 from lib.secure_route import secure_route
 from marshmallow import ValidationError
+import requests
 
 
 article_schema = ArticleSchema()
 
 router = Blueprint(__name__, "countryarticle")
 
-router = Blueprint(__name__, "proxy")
-# router = Blueprint(__name__, "news")
 
-
-# @router.route("/news/<int:id>", methods=["GET"])
-# def index(id):
+# @router.route("/news/<id>", methods=["GET"])
+# def test(id):
 #     print(id)
 #     return "hello"
 #     # return id
 
 
-# @router.route("/proxy/<country>", methods=["GET"])
+@router.route("/news/<country>", methods=["GET"])
+def index(country):
+    response = requests.get(
+        f"https://newsapi.org/v2/everything?q={country}&language=en&apiKey=59129570db024a9aaaeb6c5af565d124"
+    )
+
+    return response.json()
+
+
+# @router.route('/news/<country>', methods=["GET"])
 # def blah(country):
 #     return country
 
