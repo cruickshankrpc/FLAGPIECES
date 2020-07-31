@@ -20,9 +20,9 @@ router = Blueprint(__name__, "proxy")
 #     # return id
 
 
-@router.route("/proxy/<country>", methods=["GET"])
-def blah(country):
-    return country
+# @router.route("/proxy/<country>", methods=["GET"])
+# def blah(country):
+#     return country
 
 
 @router.route("/countryarticles/article", methods=["POST"])
