@@ -3,8 +3,6 @@ import { Switch, Route, HashRouter } from 'react-router-dom'
 
 import './style.scss'
 
-
-
 import HomePage from './components/HomePage'
 import NavBar from './components/NavBar'
 import Register from './components/Register'

@@ -32,26 +32,6 @@ def show(id):
     return article_schema.jsonify(article), 200
 
 
-# @router.route("/singlearticle/<int:article_id>/reaction", methods=["PUT"])
-# @secure_route
-# def reaction_create(article_id):
-#   print(article_id)
-#   existing_article = Article.query.get(article_id)
-#   reaction = Reaction.query.get(request.get_json()['reactions'])
-#   print(reaction)
-#   new_article = request.get_json()
-#   new_article['reactions'] = reaction
-#   print('this is new article:', new_article)
-#   article = article_schema.load(new_article, instance=existing_article, partial=True)
-#   print(reaction['reactions'])
-
-#   if article.reader != g.current_user:
-#     return jsonify({'message': 'Unauthorized'}), 401
-
-#   article.save()
-#   return article_schema.jsonify(article), 201
-
-
 @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
 @secure_route
 def reaction_create(article_id):
@@ -72,40 +52,6 @@ def reaction_create(article_id):
     existing_article.save()
 
     return reaction_schema.jsonify(new_reaction), 201
-
-    # existing_article = Article.query.get(article_id)
-
-    # article = article_schema.load(article_schema.dump(existing_article), instance=existing_article, partial=True)
-    # article['reactions'].append(reaction())
-
-    # if article.reader != g.current_user:
-    #   return jsonify({'message': 'Unauthorized'}), 401
-
-    # article.save()
-    # return article_schema.jsonify(article), 201
-
-    # try:
-    #     reaction = reaction_schema.load(reaction_response)
-    # except ValidationError as e:
-    #     return jsonify({"errors": e.messages, "message": "Something went wrong!"})
-    # reaction.save()
-    # return reaction_schema.jsonify(reaction), 201
-
-
-# @router.route("/singlearticle/<int:article_id>/reaction", methods=["POST"])
-# @secure_route
-# def reaction_create(article_id):
-#     reaction_data = request.get_json()
-#     article = Article.query.get(article_id)
-#     reaction = reaction_schema.load(reaction_data)
-#     # ! This tells sqlalchemy which article our reaction is associated with
-#     reaction.article = article
-#     # At this stage, the reaction is complete
-#     reaction.save()
-#     return reaction_schema.jsonify(reaction)
-
-# ! if using this method we need to add/  uncomment the relationship with article
-# ! delete/ comment the other method using many to many
 
 
 @router.route("/singlearticle/<int:article_id>/comments", methods=["POST"])

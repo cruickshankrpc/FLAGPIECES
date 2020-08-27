@@ -75,10 +75,3 @@ const UserPage = () => {
 
 export default UserPage 
 
-{/* <div className="comment-box">
-{userArticles && userArticles.map(article => {
-  return <div className="media-content" key={article.id}>
-    <div className="article-content">
-      <p>{article.comments.content}</p>
-      <small>{moment(article.comments.created_at).calendar()}</small>
-    </div> */}

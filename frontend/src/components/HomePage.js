@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-// import { useLocation } from 'react-router-dom'
 import MapGL, { Marker, Popup } from 'react-map-gl'
 
 const mapData = [
@@ -171,15 +170,9 @@ const HomePage = () => {
   // ! Initial map view
   const [viewPort, setViewPort] = useState({
 
-    // altitude: 1.5,
-    // bearing: 0,
     height: '80vh',
     width: '85vw',
     zoom: 1,
-    // maxPitch: 60,
-    // maxZoom: 24,
-    // minZoom: 0,
-    // pitch: 0,
     latitude: 54,
     longitude: -2
   })
@@ -249,13 +242,6 @@ const HomePage = () => {
 
                 <h3>{selectedCountry.name}</h3>
                 <h4>{selectedCountry.flag}</h4>
-
-                {/* <img
-
-                  src={selectedCountry.media[0].url}
-                  alt='campground' */}
-
-                {/* /> */}
 
               </div>
 

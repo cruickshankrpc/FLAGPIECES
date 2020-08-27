@@ -13,11 +13,6 @@ articles_reactions = db.Table(
     db.Column("article_id", db.Integer, db.ForeignKey("articles.id"), primary_key=True),
 )
 
-# articles_flags = db.Table('articles_flags',
-#   db.Column('flag_id', db.Integer, db.ForeignKey('flag.id'), primary_key=True),
-#   db.Column('article_id', db.Integer, db.ForeignKey('articles.id'), primary_key=True)
-# )
-
 
 class Article(db.Model, BaseModel):
 
@@ -38,12 +33,6 @@ class Article(db.Model, BaseModel):
 
     reader_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
     reader = db.relationship("User", backref="reader_articles")
-
-    # flags = db.relationship('Flag', secondary=articles_flags, backref='flags')
-
-    # flag_id = db.Column(db.String, db.ForeignKey('flags.id'))
-    # flag = db.relationship('Flag', backref='flag_id')
-
 
 class Comment(db.Model, BaseModel):
 
@@ -66,10 +55,6 @@ class ArticleSchema(ma.SQLAlchemyAutoSchema, BaseSchema):
 
     reader = fields.Nested("UserSchema", only=("id", "username"))
     reader_id = fields.Integer()
-
-    # flags=fields.Nested('FlagSchema', many=True)
-    # flag=fields.Nested('FlagSchema', many=True)
-    # flag_id=fields.Integer()
 
 
 class CommentSchema(ma.SQLAlchemyAutoSchema):

@@ -15,8 +15,6 @@ const CountryArticles = (props) => {
 
   const country = props.match.params.country
 
-  // console.log('PROPS:', props.match.params.country)
-
   //  inside onclick, sets the flag_image value  countryEmojiMap[country]
   function handleSubmit(item) {
     const countryEmojiMap = {
@@ -57,19 +55,10 @@ const CountryArticles = (props) => {
 
 
   // api/news/country
-
-
-
-
   useEffect(() => {
-
-
     axios.get(`/api/news/${country}`)
       .then(axiosResp => {
         setArticles(axiosResp.data.articles)
-
-
-
       })
   }, [country])
 

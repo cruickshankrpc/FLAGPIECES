@@ -21,9 +21,6 @@ def profile():
     user = User.query.get(g.current_user.id)
     return user_schema.jsonify(user)
 
-    # ! explore filter_by methods? Use similar for filtering for reactions?
-    # user = User.query.filter_by(image=data['image']).first()
-
 
 @router.route("/login", methods=["POST"])
 def login():

@@ -10,14 +10,6 @@ article_schema = ArticleSchema()
 
 router = Blueprint(__name__, "countryarticle")
 
-
-# @router.route("/news/<id>", methods=["GET"])
-# def test(id):
-#     print(id)
-#     return "hello"
-#     # return id
-
-
 @router.route("/news/<country>", methods=["GET"])
 def index(country):
     response = requests.get(
@@ -25,12 +17,6 @@ def index(country):
     )
 
     return response.json()
-
-
-# @router.route('/news/<country>', methods=["GET"])
-# def blah(country):
-#     return country
-
 
 @router.route("/countryarticles/article", methods=["POST"])
 @secure_route

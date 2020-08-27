@@ -8,8 +8,6 @@ import os
 
 ## registering your blueprints...
 
-# app = Flask(__name__)
-
 app = Flask(__name__, static_folder="dist")
 
 app.config["SQLALCHEMY_DATABASE_URI"] = db_uri

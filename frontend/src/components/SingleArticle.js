@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import moment from 'moment'
-// import 'bulma'
-// import { Link } from 'react-router-dom'
 
 const SingleArticle = (props) => {
 

@@ -16,8 +16,6 @@ const FeedPage = () => {
     })
       .includes(reaction)
   })
-  // console.log('NEWARTICLE:', newArticles)
-
 
   function handleSort(event) {
     // console.log(event.target.value)
@@ -32,15 +30,12 @@ const FeedPage = () => {
     } if (event.target.value === 'sad') {
       setReaction('sad')
     }
-
   }
 
   useEffect(() => {
     axios.get('/api/feed')
       .then(axiosResp => {
         setArticles(axiosResp.data)
-        // setFilterReactions()
-        // console.log('RESPONSE:', axiosResp.data)
       })
   }, [])
 

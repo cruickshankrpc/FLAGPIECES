@@ -14,9 +14,6 @@ router = Blueprint(__name__, "userpage")
 @router.route("/userpage", methods=["GET"])
 @secure_route
 def show():
-    # article = Article.query.filter_by(reader_id="1").all()
-    # article = Article.query.filter(Article.reader_id.endswith(1)).all()
-    # article = Article.find_
     user = User.query.get(g.current_user.id)
 
     if not user:
