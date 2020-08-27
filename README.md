@@ -8,9 +8,9 @@ By [Raquel Cruickshank](https://github.com/cruickshankrpc) + [Richard Bekoe](htt
 Richard and I built this full-stack application with a Python back-end and a React front-end using Mapbox & News APIs.\
 Users can click on a country button on the interactive map and browse articles from multiple news outlets (BBC, Guardian, Al Jazeera etc).\
 Once logged in users can:
-  - Comment on articles
-  - 'React' to an article (😂😊😲😓😡)
-  - Browse read articles on their 'Profile' page
+  - Comment on articles.
+  - 'React' to an article (😂😊😲😓😡).
+  - Browse read articles on their 'Profile' page.
   - Browse aggregate of user articles with reactions on the 'Feed' page, and FILTER by reaction. 
 
 ![ghana](./media/ghana.gif)
@@ -42,18 +42,15 @@ Once logged in users can:
 - SCSS
 - JavaScript
 - React
-
 - PostgreSQL
 - Python
 - Flask
 - SQLAlchemy 
 - Marshmallow
-
 - TablePlus
 - Insomnia 
 - Figma
 - Trello
-
 - Bcrypt 
 - JWT
 - Mapbox API
@@ -64,12 +61,12 @@ Once logged in users can:
 
 ## Approach
 We decided to use News API as our data source for our application. Due to it being continually updated, we decided not to scrape the data to our backend, and instead, fetch the data from the front.\
-We began by planning out our user journey in the wireframe below: 
+We began by planning out our user journey in Figma on the wireframe below: 
 
 ## Wireframe
 ![figma](./media/PROJECT-4%20WIREFRAME.png)
 
-We also roughly outlined the models and components we needed to build:
+We also roughly outlined the models and components we needed to build on Trello:
 
 ![trello](./media/trello4.png)
 
@@ -139,7 +136,7 @@ For comments, I wrote a handleComment function to carry out an axios POST reques
       })
   }
 ```
-In JSX, I used the **map Array method** to display comments saved:
+In JSX, I used the **map Array method** to display comments saved, and **moment** for the timestamp:
 ```Javascript
  <div className="comments-container">
           <h2>COMMENTS:</h2>
@@ -165,11 +162,13 @@ On our Feed page we used a **useEffect hook**  to retrieve articles. Then, we us
 
 ## Wins & Challenges 
 
-Creating our models and figuring our our entity relationships took a long time, which made our backend build slow. We had very limited time to build the frontend and style, however, I am pleased that it came together. It also meant that we had to think very hard about the architecture of our programme. Richard was a joy to work with, and gave me confidence in myself as a coder and problem solver. 
+Creating our models and figuring our our entity relationships took a long time, which was frustrating, and made our backend build slow. During my time at GA I realised that I lean more toward frontend development, as I relish visual design and considering user psychology. Although I was desperate to build the frontend, Richard's patience and need to thoroughly understand the backend architecture of our programme forced me to really get on board too, which was a great pay off. 
+
+Given the limited amount of time I had to design, I am pleased that the frontend came together. Richard was a joy to work with, and gave me confidence in myself as a coder and problem solver. 
 
 ## Future Features
-- Hoverable map without buttons 
-- Delete & edit comments
+- Hoverable map without buttons.
+- Delete & edit comments.
 - Make reactions 'scalable'- each reaction image is attached to the article as a separate image each time it is clicked, a counter would maybe be better. 
-- User avataars
+- User avatars.
 - Incorporate Material UI for Skeleton loading. 
