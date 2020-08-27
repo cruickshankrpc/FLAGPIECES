@@ -166,7 +166,10 @@ In JSX, I used the **map Array method** to display comments saved, and **moment*
 
 On our Feed page we used a **useEffect hook**  to retrieve articles. Then, we used the **filter method** to filter through all the articles and then map over the array of reactions:
 
-![feed](./media/feed.gif)
+<!-- ![feed](./media/feed.gif) -->
+<p align=center>
+<img src="./media/feed.gif" />
+</p>
 
 ## Wins & Challenges 
 
