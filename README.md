@@ -12,6 +12,8 @@ Once logged in users can:
   - 'React' to an article (😂😊😲😓😡).
   - Browse read articles on their 'Profile' page.
   - Browse aggregate of user articles with reactions on the 'Feed' page, and FILTER by reaction. 
+  
+[Take a look.](http://flagpieces.herokuapp.com/)
 
 ![ghana](./media/ghana.gif)
 
