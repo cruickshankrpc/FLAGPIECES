@@ -157,7 +157,10 @@ In JSX, I used the **map Array method** to display comments saved, and **moment*
           </div>
         </div>
 ```
-![comments](./media/comments.gif)
+<!-- ![comments](./media/comments.gif) -->
+<p align=center>
+<img src="./media/comments.gif" />
+</p>
 
 ### Feed
 
