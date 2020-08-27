@@ -15,7 +15,10 @@ Once logged in users can:
   
 [Take a look.](http://flagpieces.herokuapp.com/)
 
-![ghana](./media/ghana.gif)
+<!-- ![GIF](./media/ghana.gif) -->
+<p align=center>
+<img src="./media/ghana.gif" />
+</p>
 
 ## Contents
   - [Overview](#overview)
