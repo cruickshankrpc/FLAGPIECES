@@ -29,6 +29,7 @@ Once logged in users can:
   - [Wireframe](#wireframe)
   - [Build](#build)
   - [Wins & Challenges](#wins--challenges)
+  - [Key Learnings](#key-learnings)
   - [Future Features](#future-features)
 
 ## Brief
@@ -176,6 +177,12 @@ On our Feed page we used a **useEffect hook**  to retrieve articles. Then, we us
 Creating our models and figuring our our entity relationships took a long time, which was frustrating, and made our backend build slow. During my time at GA I realised that I lean more toward frontend development, as I relish visual design and considering user psychology. Although I was desperate to build the frontend, Richard's patience and need to thoroughly understand the backend architecture of our programme forced me to really get on board too, which was a great pay off. 
 
 Given the limited amount of time I had to design, I am pleased that the frontend came together. Richard was a joy to work with, and gave me confidence in myself as a coder and problem solver. 
+
+## Key Learnings
+
+- Pair-programming can push you to be a better coder. 
+- Don't be too ambitious about functionality, especially when this dictates complicated entity relationships, when given a short time-frame project ! 
+- Be adaptable. The MVP and final product may change, but you can come up with new ideas under pressure, and make necessary adjustments.
 
 ## Future Features
 - Hoverable map without buttons.
